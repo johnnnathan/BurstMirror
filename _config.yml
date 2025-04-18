@@ -1,0 +1,13 @@
+title: "Crackme Writeups"
+description: "Reverse engineering challenges & solutions"
+theme: minima
+collections:
+  challenges:
+    output: true
+    permalink: /:collection/:path/
+defaults:
+  - scope:
+      path: "_challenges"
+      type: challenges
+    values:
+      layout: default
