@@ -1,13 +1,11 @@
 ---
-title: Very_Easy_Hardcoded_By_Oles
+title: Very Easy Hardcoded By Oles
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

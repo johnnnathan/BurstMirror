@@ -1,13 +1,11 @@
 ---
-title: Beginner_Challenge_By_Kropesiunia
+title: Beginner Challenge By Kropesiunia
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

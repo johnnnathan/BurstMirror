@@ -1,13 +1,11 @@
 ---
-title: Vaultcrack_By_Psyr3N
+title: Vaultcrack By Psyr3N
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

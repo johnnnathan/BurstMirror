@@ -10,11 +10,9 @@ title: License_Keygen_by_999
 
 {{ solution | markdownify }}
 
-{% if site.static_files | where: "path", "/_challenges/License_Keygen_by_999/keygen.py" %}
+{% assign file = site.static_files | where: "path", "/_challenges/License_Keygen_by_999/keygen.py" | first %}
 ## 🔑 Keygen (Python)
 
 ```py
 {% include_relative keygen.py %}
 ```
-{% endif %}
-

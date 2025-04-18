@@ -10,10 +10,9 @@ title: Simple_But_Not_Simple_By_Jackioye
 
 {{ solution | markdownify }}
 
-{% if site.static_files | where: "path", "/_challenges/Simple_but_not_simple_by_jackioye/keygen.py" %}
+{% assign file = site.static_files | where: "path", "/_challenges/Simple_but_not_simple_by_jackioye/keygen.py" | first %}
 ## 🔑 Keygen (Python)
 
 ```py
 {% include_relative keygen.py %}
 ```
-{% endif %}

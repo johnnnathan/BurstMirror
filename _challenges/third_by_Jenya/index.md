@@ -10,11 +10,9 @@ title: third_by_Jenya
 
 {{ solution | markdownify }}
 
-{% if site.static_files | where: "path", "/_challenges/third_by_Jenya/keygen.py" %}
+{% assign file = site.static_files | where: "path", "/_challenges/third_by_Jenya/keygen.py" | first %}
 ## 🔑 Keygen (Python)
 
 ```py
 {% include_relative keygen.py %}
 ```
-{% endif %}
-

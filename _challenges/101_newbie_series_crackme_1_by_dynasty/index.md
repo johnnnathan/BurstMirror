@@ -1,13 +1,11 @@
 ---
-title: 101_Newbie_Series_Crackme_1_By_Dynasty
+title: 101 Newbie Series Crackme 1 By Dynasty
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

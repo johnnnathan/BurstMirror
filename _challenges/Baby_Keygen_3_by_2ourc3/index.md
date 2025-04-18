@@ -10,11 +10,10 @@ title: Baby_Keygen_3_By_2Ourc3
 
 {{ solution | markdownify }}
 
-{% if site.static_files | where: "path", "/_challenges/Baby_Keygen_3_by_2ourc3/keygen.py" %}
+{% assign file = site.static_files | where: "path", "/_challenges/Baby_Keygen_3_by_2ourc3/keygen.py" | first %}
 ## 🔑 Keygen (Python)
 
 ```py
 {% include_relative keygen.py %}
 ```
-{% endif %}
 

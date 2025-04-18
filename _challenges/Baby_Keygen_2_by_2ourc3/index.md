@@ -1,13 +1,11 @@
 ---
-title: Baby_Keygen_2_By_2Ourc3
+title: Baby Keygen 2 By 2Ourc3
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

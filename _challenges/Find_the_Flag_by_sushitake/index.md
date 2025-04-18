@@ -1,5 +1,5 @@
 ---
-title: Find_The_Flag_By_Sushitake
+title: Find The Flag By Sushitake
 ---
 
 {% capture solution %}

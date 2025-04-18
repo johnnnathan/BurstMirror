@@ -1,13 +1,11 @@
 ---
-title: Simple_Crack_Me_By_Gogetablue
+title: Simple Crack Me By Gogetablue
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

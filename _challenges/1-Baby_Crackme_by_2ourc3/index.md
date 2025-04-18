@@ -1,13 +1,11 @@
 ---
-title: 1 Baby_Crackme_By_2Ourc3
+title: 1 Baby Crackme By 2Ourc3
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

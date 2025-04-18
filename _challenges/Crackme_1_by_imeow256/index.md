@@ -1,13 +1,11 @@
 ---
-title: Crackme_1_By_Imeow256
+title: Crackme 1 By Imeow256
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

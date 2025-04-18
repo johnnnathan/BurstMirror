@@ -10,11 +10,9 @@ title: SimpleCrackmeEzDiaoL
 
 {{ solution | markdownify }}
 
-{% if site.static_files | where: "path", "/_challenges/SimpleCrackmeEzDiaoL/keygen.c" %}
+{% assign file = site.static_files | where: "path", "/_challenges/SimpleCrackmeEzDiaoL/keygen.py" | first %}
 ## 🔑 Keygen (Python)
 
 ```c
 {% include_relative keygen.c%}
 ```
-{% endif %}
-

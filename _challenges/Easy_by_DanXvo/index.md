@@ -1,13 +1,11 @@
 ---
-title: Easy_By_Danxvo
+title: Easy By Danxvo
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

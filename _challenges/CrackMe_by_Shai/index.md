@@ -1,13 +1,11 @@
 ---
-title: Crackme_By_Shai
+title: Crackme By Shai
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

@@ -1,13 +1,11 @@
 ---
-title: Find_The_Pass_By_Chrisk
+title: Find The Pass By Chrisk
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

@@ -1,13 +1,11 @@
 ---
-title: Plain_Sight_By_L3A4Dam
+title: Plain Sight By L3A4Dam
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Crypted_String_By_Suspekt | Crackme Writeups</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Crypted_String_By_Suspekt" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Reverse engineering challenges &amp; solutions" />
+<meta property="og:description" content="Reverse engineering challenges &amp; solutions" />
+<link rel="canonical" href="http://localhost:4000/challenges/crypted_string_by_SUSPEKT/index/" />
+<meta property="og:url" content="http://localhost:4000/challenges/crypted_string_by_SUSPEKT/index/" />
+<meta property="og:site_name" content="Crackme Writeups" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Crypted_String_By_Suspekt" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Reverse engineering challenges &amp; solutions","headline":"Crypted_String_By_Suspekt","url":"http://localhost:4000/challenges/crypted_string_by_SUSPEKT/index/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Crackme Writeups" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Crackme Writeups</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/">Crackmes</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+<h2 id="-solution">📝 Solution</h2>
+
+<p>Solution to “crypted string” by SUSPEKT</p>
+
+<p>Running the app we get an “Enter:” prompt and entering a random string of character gives us a “FIMOZ OWNER ACCES DENIED!!!!”, I 
+don’t know what the language is, but I do know that the password was not correct.</p>
+
+<p>Loading up the executable into ghidra and searching for strings does not give us anything of note, I was also not able to get the 
+“Enter:” string to show up, meaning that I had to search myself for the main method. Since it is c/c++ it is easy enough to do so, 
+by following the call with 3 arguments passed to it.</p>
+
+<p>There is a call to std::cout and one to std::cin, mirroring the behavior that we see when we execute it. Setting a breakpoint at the 
+same point in a debugger we can step through the assembly and better understand the flow of the program. If we pay attention to the 
+cpu registers we can see that RDX is populated after the “lea rdx, qword ptr ss:[rbp-60]” operation, with the result of the decryption 
+function. The string inside the RDX register is “crackmeYG” and if we pass that as input to the program the window 
+shuts down, meaning that we have found the password.</p>
+
+<p>The encryption algorithm works by initializing posititions at a set offset on the stack with a pair of values. When the second value 
+is subtracted from the first one, the ASCII code of the decrypted string’s xth character is computed. If done for every character in 
+the sequence the full decrypted string will have been computed.</p>
+
+<h2 id="-keygen-python">🔑 Keygen (Python)</h2>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Solution to "crypted string" by SUSPEKT 
+#
+# This keygen is just a template for this type of encryption, although the behavior is the same,
+# the actual mechanics differ between this implementation and the one seen inside the challenge.
+#
+# github.com/johnnnathan
+</span>
+
+<span class="n">encrypted_values</span> <span class="o">=</span> <span class="p">[</span><span class="mh">0xffffffc4</span> <span class="p">,</span><span class="mh">0xffffff98</span><span class="p">,</span><span class="mh">0xffffffc2</span><span class="p">,</span><span class="mh">0xffffff95</span><span class="p">,</span><span class="mh">0xffffffcc</span><span class="p">,</span><span class="mh">0xffffff99</span><span class="p">,</span><span class="mh">0xffffffc6</span><span class="p">,</span><span class="mh">0xffffff82</span><span class="p">,</span><span class="mh">0xfffffff8</span><span class="p">,</span><span class="mh">0xFFFFFF61</span><span class="p">,</span> <span class="mh">0xFFFFFF26</span><span class="p">,</span> <span class="mh">0xFFFFFF61</span><span class="p">,</span> <span class="mh">0xFFFFFF32</span><span class="p">,</span> <span class="mh">0xFFFFFF61</span><span class="p">,</span><span class="mh">0xFFFFFF2c</span> <span class="p">,</span> <span class="mh">0xFFFFFF61</span><span class="p">,</span> <span class="mh">0xFFFFFF29</span><span class="p">,</span> <span class="mh">0xFFFFFFB1</span><span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">encrypted_values</span><span class="p">)</span>
+<span class="n">half_length</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">length</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">half_length</span><span class="p">):</span>
+    <span class="n">result</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">encrypted_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">encrypted_values</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">half_length</span><span class="p">])</span>
+
+<span class="n">decrypted_string</span> <span class="o">=</span> <span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">result</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">decrypted_string</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Crackme Writeups</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Crackme Writeups</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Reverse engineering challenges &amp; solutions</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

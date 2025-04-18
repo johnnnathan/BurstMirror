@@ -1,13 +1,11 @@
 ---
-title: Beginner_Friendly_Crackm Me_By_Ventrat
+title: Beginner Friendly Crackm Me By Ventrat
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

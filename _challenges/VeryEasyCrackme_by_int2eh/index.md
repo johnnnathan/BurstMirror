@@ -10,10 +10,9 @@ title: Veryeasycrackme_By_Int2Eh
 
 {{ solution | markdownify }}
 
-{% if site.static_files | where: "path", "/_challenges/VeryEasyCrackme_by_int2eh/keygen.py" %}
+{% assign file = site.static_files | where: "path", "/_challenges/VeryEasyCrackme_by_int2eh/keygen.py" | first %}
 ## 🔑 Keygen (Python)
 
 ```py
 {% include_relative keygen.py %}
 ```
-{% endif %}

@@ -10,10 +10,9 @@ title: crackme_by_Harel21
 
 {{ solution | markdownify }}
 
-{% if site.static_files | where: "path", "/_challenges/crackme_by_Harel21/keygen.py" %}
+{% assign file = site.static_files | where: "path", "/_challenges/crackme_by_Harel21/keygen.py" | first %}
 ## 🔑 Keygen (Python)
 
 ```py
 {% include_relative keygen.py %}
 ```
-{% endif %}

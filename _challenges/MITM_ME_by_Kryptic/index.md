@@ -1,13 +1,11 @@
 ---
-title: Mitm_Me_By_Kryptic
+title: Mitm Me By Kryptic
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

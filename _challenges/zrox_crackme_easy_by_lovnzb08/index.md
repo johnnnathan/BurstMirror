@@ -1,13 +1,11 @@
 ---
-title: Zrox_Crackme_Easy_By_Lovnzb08
+title: Zrox Crackme Easy By Lovnzb08
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

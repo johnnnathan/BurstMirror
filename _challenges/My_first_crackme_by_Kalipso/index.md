@@ -1,13 +1,11 @@
 ---
-title: My_First_Crackme_By_Kalipso
+title: My First Crackme By Kalipso
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

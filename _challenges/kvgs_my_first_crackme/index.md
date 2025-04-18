@@ -10,11 +10,9 @@ title: kvgs_my_first_crackme
 
 {{ solution | markdownify }}
 
-{% if site.static_files | where: "path", "/_challenges/kvgs_my_first_crackme/keygen.py" %}
+{% assign file = site.static_files | where: "path", "/_challenges/kvgs_my_first_crackme/keygen.py" | first %}
 ## 🔑 Keygen (Python)
 
 ```py
 {% include_relative keygen.py %}
 ```
-{% endif %}
-

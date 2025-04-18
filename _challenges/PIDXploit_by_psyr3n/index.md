@@ -1,13 +1,11 @@
 ---
-title: Pidxploit_By_Psyr3N
+title: Pidxploit By Psyr3N
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

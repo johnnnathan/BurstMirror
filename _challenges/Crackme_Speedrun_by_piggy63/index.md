@@ -1,13 +1,11 @@
 ---
-title: Crackme_Speedrun_By_Piggy63
+title: Crackme Speedrun By Piggy63
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

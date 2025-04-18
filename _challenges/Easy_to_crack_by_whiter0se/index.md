@@ -1,13 +1,11 @@
 ---
-title: Easy_To_Crack_By_Whiter0Se
+title: Easy To Crack By Whiter0Se
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

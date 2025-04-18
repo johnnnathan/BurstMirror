@@ -1,13 +1,11 @@
 ---
-title: Get_The_Password_By_Hn1
+title: Get The Password By Hn1
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

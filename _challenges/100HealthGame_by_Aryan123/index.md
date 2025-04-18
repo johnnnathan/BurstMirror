@@ -1,13 +1,11 @@
 ---
-title: 100Healthgame_By_Aryan123
+title: 100Healthgame By Aryan123
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

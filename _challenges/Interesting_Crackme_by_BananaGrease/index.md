@@ -10,10 +10,9 @@ title: Interesting_Crackme_By_Bananagrease
 
 {{ solution | markdownify }}
 
-{% if site.static_files | where: "path", "/_challenges/Interesting_Crackme_by_BananaGrease/keygen.py" %}
+{% assign file = site.static_files | where: "path", "/_challenges/Interesting_Crackme_by_BananaGrease/keygen.py" | first %}
 ## 🔑 Keygen (Python)
 
 ```py
 {% include_relative keygen.py %}
 ```
-{% endif %}

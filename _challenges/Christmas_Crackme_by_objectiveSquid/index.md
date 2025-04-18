@@ -1,13 +1,11 @@
 ---
-title: Christmas_Crackme_By_Objectivesquid
+title: Christmas Crackme By Objectivesquid
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

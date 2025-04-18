@@ -1,13 +1,11 @@
 ---
-title: My_First_By_Privategm
+title: My First By Privategm
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

@@ -1,13 +1,11 @@
 ---
-title: Input_Magic_By_Sw33Tlie
+title: Input Magic By Sw33Tlie
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

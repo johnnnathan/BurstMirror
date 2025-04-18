@@ -1,13 +1,11 @@
 ---
-title: Very_Easy_Crackme_By_Szlug3Ns
+title: Very Easy Crackme By Szlug3Ns
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

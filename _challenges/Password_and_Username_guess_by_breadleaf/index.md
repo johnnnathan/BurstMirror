@@ -1,13 +1,11 @@
 ---
-title: Password_And_Username_Guess_By_Breadleaf
+title: Password And Username Guess By Breadleaf
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

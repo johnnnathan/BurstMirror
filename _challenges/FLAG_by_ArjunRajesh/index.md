@@ -1,13 +1,11 @@
 ---
-title: Flag_By_Arjunrajesh
+title: Flag By Arjunrajesh
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

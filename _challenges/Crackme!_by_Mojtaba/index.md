@@ -1,13 +1,11 @@
 ---
-title: Crackme!_By_Mojtaba
+title: Crackme! By Mojtaba
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

@@ -1,13 +1,11 @@
 ---
-title: Crackme_2_By_Leevion
+title: Crackme 2 By Leevion
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

@@ -1,13 +1,11 @@
 ---
-title: Basic_Crackme_Consolebased_By_Thefakeking
+title: Basic Crackme Consolebased By Thefakeking
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

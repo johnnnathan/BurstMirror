@@ -1,13 +1,11 @@
 ---
-title: Crackme_By_Coulomb
+title: Crackme By Coulomb
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

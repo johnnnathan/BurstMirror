@@ -1,13 +1,11 @@
 ---
-title: Easy_Password_Reverse_3_By_Clyax
+title: Easy Password Reverse 3 By Clyax
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

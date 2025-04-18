@@ -1,13 +1,11 @@
 ---
-title: Excrackme_By_Woskethebot
+title: Excrackme By Woskethebot
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}

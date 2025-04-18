@@ -1,13 +1,11 @@
 ---
-title: Level_One_Crackme_For_Beginners By_Ripfaceless
+title: Level One Crackme For Beginners By Ripfaceless
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
 ## 📝 Solution
 
 {{ solution | markdownify }}
-
-{% endraw %}
