@@ -2,7 +2,7 @@
 title: Find_The_Flag_By_Froglover22
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
