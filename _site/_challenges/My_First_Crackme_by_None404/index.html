@@ -1,0 +1,75 @@
+
+<h2 id="-solution">📝 Solution</h2>
+
+<p>Solution to “My First Crackme” by None404</p>
+
+<p>I want to preface this solution by mentioning that this might be a perfect crackme challenge. Some weeks ago I spent a lot of time on it and 
+was not able to solve it fully. I came back and analyzed it, after having gained some more experience, and after again a lot of hours I was
+able to decode the assembly and find the correct password.</p>
+
+<p>Running this application we can see that this is yet another password only challenge. No username and thus no personalized key. Inside 
+the main method we can find some variables being initialized. The interesting variable is an array with five elements. Each index 
+contains a method pointer to a different function and in the following loop it iterates over each of the functions and executes them.</p>
+
+<p>Statically analyzing each function we can quickly realize that the first one is a method that handles printing to the terminal, the second 
+one a function that handles input, and the three following ones part of a greater function with different entry points.</p>
+
+<p>In the input-handler method every character in the given string is altered and concatenated to a string in a different location. The characters 
+are XORed by a DAT variable(in ghidra), and looking inside the program’s memory we can find that it holds the value of 0d77 or ox4D.</p>
+
+<p>In the function that consists of the previously mentioned three sub-functions we can find many if-statements and loops. Although they are 
+quite menacing they boil down to three simple ideas.</p>
+
+<ol>
+  <li>A DAT object comparison with the value of “\0”</li>
+  <li>An integer comparison of a certain variable with the value of 0x29 or 0d41</li>
+  <li>A similar loop that can be found in the print method and calls to another method that achieves the same.</li>
+</ol>
+
+<p>Using some simple reasoning and a guess I concluded that the variable of the second point stored the length of the given string(I prove this later).
+The DAT variable stumped me for a long time but in the end I skipped in in favour of understanding the rest of the program’s flow. The main 
+thing we should keep in mind is that it usually results in the program’s termination and a failure message since I have found it impossible to alter 
+its value into a non-zero one, naturally.</p>
+
+<p>Performing some bit flips I could deduce the functionality of each call.</p>
+
+<p>The first call is meant as a length evaluator. The previously referenced value of 0x29 is compared against a variable that holds the length of string 
+and returns before the DAT variable can result in an exit. Inputting a string of 41 1s(or any other combination of characters) will get you to the next 
+iteration of the loop. In the second method call the string comparison between the stored password and the given, and altered password, happens. It is 
+in the form of a simple loop where the program terminates if the two characters are not the same. The third method call mainly handles message printing 
+and is consequently unimporant.</p>
+
+<p>Going to the location in memory where the stored password exists we can see an array of characters. They are each separated 
+by three dots and of course they need to be removed. We are then left with the “+!,*<code class="language-plaintext highlighter-rouge">.|{/)x/.</code>+,}z<code class="language-plaintext highlighter-rouge">y|t,</code>|ty{y,|.}tz”. XORing the string with the 
+value of 77 as was done in the challenge write-up of 2koy we are handed the string of “flag-216bd5bc-fa07-419a-be80-09464a1c0e97”. Giving it 
+to the program results in a success message.</p>
+
+<p>Note: In the first version of my XOR reversal script for some reason the first character past the “flag-“ part was c, but that was not accepted.
+I had to manually perform the operation for that character. I do not know why that is but it should not affect you in any way.</p>
+
+<p>Have a great day :)
+github.com/johnnnathan</p>
+
+<!-- Removed static_files assign -->
+<h2 id="-keygen-python">🔑 Keygen (Python)</h2>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## Keygen for "My First Crackme" by None404
+</span><span class="n">string</span> <span class="o">=</span> <span class="s">"+!,*`.|{/)x/.`+,}z`y|t,`/(u}`}ty{y,|.}(tz"</span>
+
+<span class="n">key</span> <span class="o">=</span> <span class="mi">77</span>
+<span class="n">final_string</span> <span class="o">=</span> <span class="s">""</span>
+
+
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+    <span class="n">ascii_value</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+    <span class="n">xored_value</span> <span class="o">=</span> <span class="n">ascii_value</span> <span class="o">^</span> <span class="n">key</span>
+    <span class="n">final_string</span> <span class="o">+=</span> <span class="nb">chr</span><span class="p">(</span><span class="n">xored_value</span><span class="p">)</span>
+
+
+<span class="c1"># I know that for some reason the 2 turns into a c, I do not know why that happens to it only. Performing the operation manually 
+# using the values inside the cpu registers gives the proper output.
+</span><span class="k">print</span><span class="p">(</span><span class="s">"Key : "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Pass value: "</span> <span class="o">+</span> <span class="n">final_string</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Should be : flag-216bd5bc-fa07-419a-be80-09464a1c0e97"</span><span class="p">)</span>
+
+</code></pre></div></div>

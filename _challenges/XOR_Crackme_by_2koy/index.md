@@ -10,7 +10,7 @@ title: Xor_Crackme_By_2Koy
 
 {{ solution | markdownify }}
 
-{% assign file = site.static_files | where: "path", "/_challenges/XOR_Crackme_by_2koy/keygen.py" | first %}
+<!-- Removed static_files assign -->
 ## 🔑 Keygen (Python)
 
 ```py

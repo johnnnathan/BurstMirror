@@ -1,0 +1,21 @@
+
+<h2 id="-solution">📝 Solution</h2>
+
+<p>To solve this challenge we are tasked with passing the correct key to the program as an argument that will decode a set of strings to create a valid system command. The program parses the given key and then loops over the string chunks while performing a masking and XOR operation on the chunks. If the system call at the end of the main function, which consists of the operated upon chunks, returns an error code, the program will output “Incorrect”, otherwise the command will be executed normally. A mask of 0x1f is used in the loop which means that values above that will not result in new behavior.</p>
+
+<p>We can brute-force this program by creating a bash script that tests all of the keys from 0x0 to 0x1f, and we can manually look at the output of each trial, to find the correct key. The value 0x0b gives us a success message.</p>
+
+<p>Have a great day :)
+github.com/johnnnathan</p>
+
+<h2 id="-keygen-python">🔑 Keygen (Python)</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash </span>
+
+<span class="k">for </span>key <span class="k">in</span> <span class="o">{</span>0..31<span class="o">}</span><span class="p">;</span> <span class="k">do 
+  </span><span class="nb">echo</span> <span class="s2">"Testing key: </span><span class="nv">$key</span><span class="s2"> (0x</span><span class="si">$(</span><span class="nb">printf</span> <span class="s2">"%02x"</span> <span class="nv">$key</span><span class="si">)</span><span class="s2">)"</span>
+  ./two <span class="nv">$key</span> 
+  <span class="nb">echo</span> <span class="c"># newline</span>
+<span class="k">done</span>
+
+</code></pre></div></div>

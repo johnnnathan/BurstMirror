@@ -1,0 +1,31 @@
+
+<h2 id="-solution">📝 Solution</h2>
+
+<p>The challenge can be solved using the provided keygen.</p>
+
+<!-- Removed static_files assign -->
+<h2 id="-keygen-python">🔑 Keygen (Python)</h2>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Solution to "Hyperion" by Chriswerwerwer
+#
+# The program takes in a username. Then it iterates over all of the characters inside the username and sums up the ASCII values.
+# Then the sum is mod-ed by 10 and the resulting value needs to be both the length of the password, and also the final character of it.
+# The other characters in the password are unimportant and can be whaveter you please. I used "0" for simplicity.
+# Have a great day :)
+#
+# github.com/johnnnathan
+</span>
+
+<span class="n">username</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"What is your username?</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+<span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">username</span><span class="p">:</span>
+    <span class="nb">sum</span> <span class="o">+=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+
+<span class="nb">sum</span> <span class="o">%=</span> <span class="mi">10</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">sum</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">password</span> <span class="o">+=</span> <span class="s">"0"</span>
+<span class="n">password</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+
+</code></pre></div></div>

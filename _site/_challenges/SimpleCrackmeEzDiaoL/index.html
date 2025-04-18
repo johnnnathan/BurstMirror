@@ -1,0 +1,87 @@
+
+<h2 id="-solution">📝 Solution</h2>
+
+<p>I would like to preface this solution by stating that I encountered issues executing this application, meaning that I was only able to statically analyze the application and could not verify my solution through direct execution. The method which I used should work regardless though and you will be able to use my keygen to generate your own pass.</p>
+
+<p>The application first prints a query message and then stores input of size 12 to a variable. It computes the length of the input up to the newline character and checks whether it is within the allowed limit. The string is null-terminated and it is passed to another function to be operated upon.</p>
+
+<p>Inside the function each character is iterated over and the ASCII value used in a mathematical equation. The result of the function has a base value of 0x1505 and is increased by (result * 0x21 + ASCII Value of the character) for each character. The loop stops when the character is equal to 0, meaning that the null character at the end of the string has been reached. The result is compared against the value of -0x2e180f77, and if they are equal a “Correct” message is shown.</p>
+
+<p>Putting it all together we can start forming a solution. Since the value is supposed to be negative, we need to overflow the result value in the input processing function. The minimum input length required to reach the overflow limit, using the character ‘z’ (which has the highest ASCII value among alphanumeric characters), is 7, while the maximum length can be set as 10 to reduce computations. I created a short script that mirrors the behavior of this application and brute-forced a set amount of passwords, and saved the input that was the closest to the target. Many passwords can be found this way but it is quite unlikely that a perfect combination of characters will be found, this means that if a value is generated that is reasonably close to the target, we can change the final character to match the two values up, since the value will only be subtracted/added and not multiplied by the 0x21 value.</p>
+
+<p>One of the values that I generated was ‘xJX5zI3Q’, but many more are possible.</p>
+
+<!-- Removed static_files assign -->
+<h2 id="-keygen-python">🔑 Keygen (Python)</h2>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;limits.h&gt;</span><span class="c1"> </span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">processInput</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">input_string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">advanced_index</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">result</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">current_index</span><span class="p">;</span>
+    
+    <span class="n">result</span> <span class="o">=</span> <span class="mh">0x1505</span><span class="p">;</span> 
+    <span class="n">advanced_index</span> <span class="o">=</span> <span class="n">input_string</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">current_index</span> <span class="o">=</span> <span class="o">*</span><span class="n">advanced_index</span><span class="p">;</span>
+        <span class="n">advanced_index</span> <span class="o">=</span> <span class="n">advanced_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">current_index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span> 
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">*</span> <span class="mh">0x21</span> <span class="o">+</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">current_index</span><span class="p">;</span> 
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">testInputSizes</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">input</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">result</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">target_value</span> <span class="o">=</span> <span class="o">-</span><span class="mi">773328759</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">closest_diff</span> <span class="o">=</span> <span class="n">INT_MAX</span><span class="p">;</span>    
+    <span class="kt">char</span> <span class="n">closest_input</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>      
+
+    <span class="kt">char</span> <span class="n">characters</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span> <span class="n">len</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">len</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000000</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> 
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">input</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">characters</span><span class="p">[</span><span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="n">strlen</span><span class="p">(</span><span class="n">characters</span><span class="p">)];</span>
+            <span class="p">}</span>
+            <span class="n">input</span><span class="p">[</span><span class="n">len</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'\0'</span><span class="p">;</span> 
+
+            <span class="n">result</span> <span class="o">=</span> <span class="n">processInput</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+
+            <span class="kt">int</span> <span class="n">diff</span> <span class="o">=</span> <span class="n">abs</span><span class="p">(</span><span class="n">result</span> <span class="o">-</span> <span class="n">target_value</span><span class="p">);</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">diff</span> <span class="o">&lt;</span> <span class="n">closest_diff</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">closest_diff</span> <span class="o">=</span> <span class="n">diff</span><span class="p">;</span>
+                <span class="n">strcpy</span><span class="p">(</span><span class="n">closest_input</span><span class="p">,</span> <span class="n">input</span><span class="p">);</span>  
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="n">target_value</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"Found matching input: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">input</span><span class="p">);</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"Result: %d (Target Value Matched)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
+                <span class="k">return</span><span class="p">;</span> 
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">"No matching input found.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Closest input: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">closest_input</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Closest result: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">processInput</span><span class="p">(</span><span class="n">closest_input</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Difference from target: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">closest_diff</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+
+    <span class="n">testInputSizes</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>

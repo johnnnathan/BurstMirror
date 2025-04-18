@@ -10,7 +10,7 @@ title: Keygme_By_Rion
 
 {{ solution | markdownify }}
 
-{% assign file = site.static_files | where: "path", "/_challenges/keyGme_by_rion/keygen.py" | first %}
+<!-- Removed static_files assign -->
 ## 🔑 Keygen (C)
 
 ```c

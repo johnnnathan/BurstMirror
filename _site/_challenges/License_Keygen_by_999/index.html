@@ -1,0 +1,57 @@
+
+<h2 id="-solution">📝 Solution</h2>
+
+<p>Challenge can be solved using the provided keygen.</p>
+
+<!-- Removed static_files assign -->
+<h2 id="-keygen-python">🔑 Keygen (Python)</h2>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Keygen for "Licence Keygen" By 999
+# 
+# Another .NET program. We will use dotPeek just as we did for "dotqw's first crackme". 
+# I put the application in the program and started searching for objects that I could use to find the password.
+# This crackme uses a gui which makes it easier to detect value handling. I found a method by the name of "GenerateSerialKey" and knew
+# I was close. I looked at the contents of the method and it divided the key into three segments. The first segment 
+# was the basic username, the second the username with "salt1" appended to it and the third one the username with "salt2" appended to it.
+# GenerateSegment was the function that handled all the logic behind the key generation. Since we do not have to deal with assembly, or 
+# pseudocode we can easily transform the .NET code into usable python code.
+#
+# It computes the sha256 hash of the individual segment and then iterates over the first two indexes of the hash while doing some 
+# calculations. It mods the value of the character on the current intex and the one at an offset of 2, using the value 36.
+# Then it takes the ASCII code and through a simple if statement, calculates the values that the segment's key should consist of.
+# 
+# Example:
+#   Username: abcd
+#   Key     : S2W3-I0WI-D9LM
+# 
+#
+# Have a great day :)
+# github.com/johnnnathan
+</span>
+<span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">sha256</span>
+
+<span class="n">username</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"What is your username?</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_segment</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+    <span class="n">hash__</span> <span class="o">=</span> <span class="n">sha256</span><span class="p">(</span><span class="nb">input</span><span class="p">.</span><span class="n">encode</span><span class="p">())</span>
+    <span class="nb">hash</span> <span class="o">=</span> <span class="n">hash__</span><span class="p">.</span><span class="n">digest</span><span class="p">()</span>
+    <span class="n">segment_key</span> <span class="o">=</span> <span class="s">""</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">num1</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="mi">36</span>
+        <span class="n">num2</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span> <span class="o">%</span> <span class="mi">36</span>
+        <span class="n">ch1</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">48</span> <span class="o">+</span> <span class="n">num1</span><span class="p">)</span> <span class="k">if</span> <span class="n">num1</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="k">else</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">65</span> <span class="o">+</span> <span class="p">(</span><span class="n">num1</span> <span class="o">-</span> <span class="mi">10</span><span class="p">))</span>
+        <span class="n">ch2</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">48</span> <span class="o">+</span> <span class="n">num2</span><span class="p">)</span> <span class="k">if</span> <span class="n">num2</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="k">else</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">65</span> <span class="o">+</span> <span class="p">(</span><span class="n">num2</span> <span class="o">-</span> <span class="mi">10</span><span class="p">))</span>
+        <span class="n">segment_key</span> <span class="o">=</span> <span class="n">segment_key</span> <span class="o">+</span> <span class="n">ch1</span> <span class="o">+</span> <span class="n">ch2</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="n">segment_key</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">segment_key</span><span class="p">)</span>
+
+<span class="n">segment2_input</span> <span class="o">=</span> <span class="n">username</span> <span class="o">+</span> <span class="s">"salt1"</span>
+<span class="n">segment3_input</span> <span class="o">=</span> <span class="n">username</span> <span class="o">+</span> <span class="s">"salt2"</span>
+
+<span class="n">key</span> <span class="o">=</span> <span class="n">get_segment</span><span class="p">(</span><span class="n">username</span><span class="p">)</span> <span class="o">+</span> <span class="s">"-"</span> <span class="o">+</span> <span class="n">get_segment</span><span class="p">(</span><span class="n">segment2_input</span><span class="p">)</span> <span class="o">+</span> <span class="s">"-"</span> <span class="o">+</span>  <span class="n">get_segment</span><span class="p">(</span><span class="n">segment3_input</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"License key is :"</span> <span class="o">+</span> <span class="n">key</span><span class="p">)</span>
+
+
+
+</code></pre></div></div>

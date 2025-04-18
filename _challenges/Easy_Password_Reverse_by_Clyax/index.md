@@ -10,7 +10,7 @@ title: Easy_Password_Reverse_By_Clyax
 
 {{ solution | markdownify }}
 
-{% assign file = site.static_files | where: "path", "/_challenges/Easy_Password_Reverse_by_Clyax/keygen.py" | first %}
+<!-- Removed static_files assign -->
 ## 🔑 Keygen (Python)
 
 ```py

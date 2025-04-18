@@ -10,7 +10,7 @@ title: sys_linux_crackme_by_nobody
 
 {{ solution | markdownify }}
 
-{% assign file = site.static_files | where: "path", "/_challenges/sys_linux_crackme_by_nobody/keygen.py" | first %}
+<!-- Removed static_files assign -->
 ## 🔑 Keygen (Python)
 
 ```py

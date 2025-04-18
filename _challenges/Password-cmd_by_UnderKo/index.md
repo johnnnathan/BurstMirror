@@ -10,7 +10,7 @@ title: Password Cmd_By_Underko
 
 {{ solution | markdownify }}
 
-{% assign file = site.static_files | where: "path", "/_challenges/Password-cmd_by_UnderKo/keygen.py" | first %}
+<!-- Removed static_files assign -->
 ## 🔑 Keygen (Python)
 
 ```py

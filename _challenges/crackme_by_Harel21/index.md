@@ -10,7 +10,7 @@ title: crackme_by_Harel21
 
 {{ solution | markdownify }}
 
-{% assign file = site.static_files | where: "path", "/_challenges/crackme_by_Harel21/keygen.py" | first %}
+<!-- Removed static_files assign -->
 ## 🔑 Keygen (Python)
 
 ```py

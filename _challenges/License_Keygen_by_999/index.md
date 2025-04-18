@@ -10,7 +10,7 @@ title: License_Keygen_by_999
 
 {{ solution | markdownify }}
 
-{% assign file = site.static_files | where: "path", "/_challenges/License_Keygen_by_999/keygen.py" | first %}
+<!-- Removed static_files assign -->
 ## 🔑 Keygen (Python)
 
 ```py

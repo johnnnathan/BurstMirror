@@ -1,0 +1,23 @@
+
+<h2 id="-solution">📝 Solution</h2>
+
+<p>The challenge can be solved using the provided keygen.</p>
+
+<!-- Removed static_files assign -->
+<h2 id="-keygen-python">🔑 Keygen (Python)</h2>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">reverse_serial</span><span class="p">():</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="mh">0x70707</span>
+    <span class="k">for</span> <span class="n">password</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mh">0x1000000</span><span class="p">):</span>
+        <span class="n">local_20</span> <span class="o">=</span> <span class="p">(</span><span class="n">password</span> <span class="o">&amp;</span> <span class="mh">0xff</span><span class="p">)</span> <span class="o">|</span> <span class="mh">0x37</span>
+        <span class="n">uVar2</span> <span class="o">=</span> <span class="p">((</span><span class="n">password</span> <span class="o">&amp;</span> <span class="mh">0xff0000</span><span class="p">)</span> <span class="o">-</span> <span class="mh">0x610000</span><span class="p">)</span> <span class="o">^</span> <span class="mh">0x150000</span>
+        <span class="n">uVar1</span> <span class="o">=</span> <span class="p">(</span><span class="n">local_20</span> <span class="o">//</span> <span class="mh">0x11</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="n">password</span> <span class="o">&amp;</span> <span class="mh">0x1f00</span><span class="p">)</span> <span class="o">^</span> <span class="mh">0x1e00</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">uVar2</span><span class="o">^</span> <span class="n">uVar1</span><span class="p">)</span> <span class="o">==</span> <span class="n">target</span><span class="p">:</span>
+            <span class="k">print</span> <span class="p">(</span><span class="sa">f</span><span class="s">"Found password: </span><span class="si">{</span><span class="n">password</span><span class="p">:</span> <span class="c1">#010x</span><span class="si">}</span><span class="s">"</span><span class="p">)</span> 
+            <span class="k">return</span> <span class="n">password</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"No matching password found."</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">None</span>
+<span class="c1"># Run the reverse process
+</span><span class="n">reverse_serial</span><span class="p">()</span>
+
+</code></pre></div></div>

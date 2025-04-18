@@ -1,0 +1,34 @@
+
+<h2 id="-solution">📝 Solution</h2>
+
+<p>The evaluation function for the given password is quite simple. The given input is passed through the sscanf() function with the %d 
+type parameter, this means that the programs tries to extract an integer from the input and store the output to another variable. 
+The output is then compared against the value 10 and if they are equal the success message is shown. This means that we just need 
+to pass ‘10’ as input without any other characters before it, characters that come after it will be disregarded as long as they 
+are not numbers, since that will change the result of the sscanf function call.</p>
+
+<p>Weirdly enough, the output of the sscanf function is stored in an array, and the first element is tested in the condition, 
+so giving invalid input after a successful  attempt will still show the success message.</p>
+
+<p>Have a great day :)
+github.com/johnnnathan</p>
+
+<!-- Removed static_files assign -->
+<h2 id="-keygen-python">🔑 Keygen (Python)</h2>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"Enter a number: "</span><span class="p">)</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s">"Success!"</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s">"oh nooo..."</span><span class="p">)</span>
+
+</code></pre></div></div>

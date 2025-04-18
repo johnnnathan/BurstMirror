@@ -10,7 +10,7 @@ title: Baby_Keygen_4_By_2Ourc3
 
 {{ solution | markdownify }}
 
-{% assign file = site.static_files | where: "path", "/_challenges/Baby_Keygen_4_by_2ourc3/keygen.py" | first %}
+<!-- Removed static_files assign -->
 ## 🔑 Keygen (Python)
 
 ```py

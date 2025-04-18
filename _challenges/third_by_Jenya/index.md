@@ -10,7 +10,7 @@ title: third_by_Jenya
 
 {{ solution | markdownify }}
 
-{% assign file = site.static_files | where: "path", "/_challenges/third_by_Jenya/keygen.py" | first %}
+<!-- Removed static_files assign -->
 ## 🔑 Keygen (Python)
 
 ```py

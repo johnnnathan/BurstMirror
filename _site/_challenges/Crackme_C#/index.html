@@ -1,0 +1,13 @@
+
+<h2 id="-solution">📝 Solution</h2>
+
+<p>When I ran this executable I was met with a wall of “?”s, this is because the author didn’t write his messages in English, and thus the system can’t print them (at least in my case). This is a C# executable and that means that we can use dotPeek to decompile it, and get the original source code.</p>
+
+<p>The program consists of three small functions and they are all easy to understand. The main method handles input and output, the VerifyKey method handles length checks and key verification, and the GenerateCorrectKey method generates the key that will be compared against the input.</p>
+
+<p>In the VerifyKey method we see that false is returned if the length of the input is not equal to 16. Then in the GenerateCorrectKey method the current time in the format of “yyyyMMddHHmmss” is put through the SHA256 hashing algorithm, and the 16 first characters returned in order to be compared against the input. If the input is equal to the first 16 characters of the hash, the program accepts the user.</p>
+
+<p>Have a great day :)</p>
+
+<p>github.com/johnnnathan</p>
+

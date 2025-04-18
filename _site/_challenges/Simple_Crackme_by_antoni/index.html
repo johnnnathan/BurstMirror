@@ -1,0 +1,23 @@
+
+<h2 id="-solution">📝 Solution</h2>
+
+<p>This program uses some heavy code obfuscation which results in the main function and strings being difficult to find. Searching for the debug message that is given will land us in the “main” function. Here input and output is handled as well as the validation of the given key. The program loops over all of the characters of the given key and XORs them with the value 0xaa. The resulting character is compared against the bytes of the stored password and if they are all correct a “good job!” message is shown.</p>
+
+<p>Have a great day :)
+github.com/johnnnathan</p>
+
+<!-- Removed static_files assign -->
+<h2 id="-keygen-python">🔑 Keygen (Python)</h2>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_password</span><span class="p">():</span>
+    <span class="n">enc</span> <span class="o">=</span> <span class="p">[</span><span class="mh">0xeb</span><span class="p">,</span> <span class="mh">0xc6</span><span class="p">,</span> <span class="mh">0xcb</span><span class="p">,</span> <span class="mh">0x8a</span><span class="p">,</span> <span class="mh">0xc7</span><span class="p">,</span> <span class="mh">0xcb</span><span class="p">,</span> <span class="mh">0x8a</span><span class="p">,</span> <span class="mh">0xc1</span><span class="p">,</span> <span class="mh">0xc5</span><span class="p">,</span> <span class="mh">0xde</span><span class="p">,</span> <span class="mh">0xcb</span><span class="p">,</span> <span class="mh">0x84</span><span class="p">]</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="mh">0xaa</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="n">b</span> <span class="o">^</span> <span class="n">key</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">enc</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">password</span> 
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">pw</span> <span class="o">=</span> <span class="n">get_password</span><span class="p">();</span>
+    <span class="c1"># The password needs to be given as an argument surrounded by single quotes, otherwise the program won't read them properly
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">pw</span><span class="p">)</span>
+
+</code></pre></div></div>

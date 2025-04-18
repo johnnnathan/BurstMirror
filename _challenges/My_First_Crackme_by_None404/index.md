@@ -10,7 +10,7 @@ title: My_First_Crackme_By_None404
 
 {{ solution | markdownify }}
 
-{% assign file = site.static_files | where: "path", "/_challenges/My_First_Crackme_by_None404/keygen.py" | first %}
+<!-- Removed static_files assign -->
 ## 🔑 Keygen (Python)
 
 ```py
