@@ -2,7 +2,7 @@
 title: Xor_Crackme_By_2Koy
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
@@ -10,4 +10,11 @@ title: Xor_Crackme_By_2Koy
 
 {{ solution | markdownify }}
 
-{% endraw %}
+{% if site.static_files | where: "path", "/_challenges/Xor_Crackme_By_2Koy/keygen.py" %}
+## 🔑 Keygen (Python)
+
+```py
+{% include_relative keygen.py %}
+```
+{% endif %}
+

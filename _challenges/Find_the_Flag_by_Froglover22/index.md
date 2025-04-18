@@ -10,4 +10,10 @@ title: Find_The_Flag_By_Froglover22
 
 {{ solution | markdownify }}
 
-{% endraw %}
+{% if site.static_files | where: "path", "/_challenges/Find_The_Flag_By_Froglover22/keygen.sh" %}
+## 🔑 Keygen (Python)
+
+```bash
+{% include_relative keygen.sh%}
+```
+{% endif %}

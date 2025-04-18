@@ -2,7 +2,7 @@
 title: Easy_Password_Reverse_By_Clyax
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
@@ -10,10 +10,10 @@ title: Easy_Password_Reverse_By_Clyax
 
 {{ solution | markdownify }}
 
-{% raw %}
 {% if site.static_files | where: "path", "/_challenges/Easy_Password_Reverse_by_Clyax/keygen.py" %}
 ## 🔑 Keygen (Python)
 
 ```py
 {% include_relative keygen.py %}
-{% endif %}{% endraw %}{% endraw %}
+```
+{% endif %}

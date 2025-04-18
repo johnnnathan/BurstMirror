@@ -2,7 +2,7 @@
 title: Keygme_By_Rion
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
@@ -10,10 +10,10 @@ title: Keygme_By_Rion
 
 {{ solution | markdownify }}
 
-{% raw %}
 {% if site.static_files | where: "path", "/_challenges/keyGme_by_rion/keygen.c" %}
 ## 🔑 Keygen (C)
 
 ```c
-{% include_relative keygen.c %}
-{% endif %}{% endraw %}{% endraw %}
+{% include_relative keygen.c%}
+```
+{% endif %}

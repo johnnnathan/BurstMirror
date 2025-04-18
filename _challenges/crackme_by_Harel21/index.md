@@ -1,5 +1,5 @@
 ---
-title: Crackme1_By_Majorsopa
+title: crackme_by_Harel21 
 ---
 
 {% capture solution %}
@@ -10,7 +10,7 @@ title: Crackme1_By_Majorsopa
 
 {{ solution | markdownify }}
 
-{% if site.static_files | where: "path", "/_challenges/crackme1_by_majorsopa/keygen.py" %}
+{% if site.static_files | where: "path", "/_challenges/crackme_by_Harel21/keygen.py" %}
 ## 🔑 Keygen (Python)
 
 ```py

@@ -2,7 +2,7 @@
 title: Interesting_Crackme_By_Bananagrease
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
@@ -10,10 +10,10 @@ title: Interesting_Crackme_By_Bananagrease
 
 {{ solution | markdownify }}
 
-{% raw %}
 {% if site.static_files | where: "path", "/_challenges/Interesting_Crackme_by_BananaGrease/keygen.py" %}
 ## 🔑 Keygen (Python)
 
 ```py
 {% include_relative keygen.py %}
-{% endif %}{% endraw %}{% endraw %}
+```
+{% endif %}

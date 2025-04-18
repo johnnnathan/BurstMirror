@@ -2,7 +2,7 @@
 title: Crackme 1_By_Para
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
@@ -10,10 +10,10 @@ title: Crackme 1_By_Para
 
 {{ solution | markdownify }}
 
-{% raw %}
 {% if site.static_files | where: "path", "/_challenges/crackme-1_by_para/keygen.py" %}
 ## 🔑 Keygen (Python)
 
 ```py
 {% include_relative keygen.py %}
-{% endif %}{% endraw %}{% endraw %}
+```
+{% endif %}

@@ -1,8 +1,8 @@
 ---
-title: Simplecrackmeezdiaol
+title: SimpleCrackmeEzDiaoL 
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
@@ -10,4 +10,11 @@ title: Simplecrackmeezdiaol
 
 {{ solution | markdownify }}
 
-{% endraw %}
+{% if site.static_files | where: "path", "/_challenges/SimpleCrackmeEzDiaoL/keygen.c" %}
+## 🔑 Keygen (Python)
+
+```c
+{% include_relative keygen.c%}
+```
+{% endif %}
+

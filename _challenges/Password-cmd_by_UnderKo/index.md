@@ -2,7 +2,7 @@
 title: Password Cmd_By_Underko
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
@@ -10,10 +10,10 @@ title: Password Cmd_By_Underko
 
 {{ solution | markdownify }}
 
-{% raw %}
 {% if site.static_files | where: "path", "/_challenges/Password-cmd_by_UnderKo/keygen.py" %}
 ## 🔑 Keygen (Python)
 
 ```py
 {% include_relative keygen.py %}
-{% endif %}{% endraw %}{% endraw %}
+```
+{% endif %}

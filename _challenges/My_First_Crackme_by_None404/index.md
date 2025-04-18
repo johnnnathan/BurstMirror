@@ -2,7 +2,7 @@
 title: My_First_Crackme_By_None404
 ---
 
-{% raw %}{% capture solution %}
+{% capture solution %}
 {% include_relative solution.txt %}
 {% endcapture %}
 
@@ -10,10 +10,10 @@ title: My_First_Crackme_By_None404
 
 {{ solution | markdownify }}
 
-{% raw %}
 {% if site.static_files | where: "path", "/_challenges/My_First_Crackme_by_None404/keygen.py" %}
 ## 🔑 Keygen (Python)
 
 ```py
 {% include_relative keygen.py %}
-{% endif %}{% endraw %}{% endraw %}
+```
+{% endif %}
