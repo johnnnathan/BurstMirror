@@ -2,17 +2,21 @@ title: "Crackme Writeups"
 description: "Reverse engineering challenges & solutions"
 theme: minima
 
+# Enable the 'challenges' collection
 collections:
   challenges:
     output: true
     permalink: /:collection/:path/
 
+# Apply default values/layout to files inside _challenges
 defaults:
   - scope:
-      path: "_challenges"
+      path: ""
       type: challenges
     values:
       layout: default
 
+# Ensure GitHub Pages includes all files in the collection
 include:
   - _challenges
+  - _challenges/**/*
