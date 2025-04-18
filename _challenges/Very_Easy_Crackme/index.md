@@ -1,9 +1,9 @@
 ---
-title: Very_Easy_Crackme 
+title: Very_Easy_Crackme
 ---
 
 {% capture solution %}
-{% include_relative solution.txt %}
+{% include_relative solution.md %}
 {% endcapture %}
 
 ## 📝 Solution
