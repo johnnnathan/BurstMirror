@@ -13,7 +13,7 @@ window.onload = function () {
                     const link = document.createElement("a");
                     
                     // Update link to include the correct path
-                    link.href = `/challenges/${challenge}/index.html`; // Correct path
+                    link.href = `challenges/${challenge}/index.html`; // Correct path
                     link.textContent = challenge.replace(/_/g, ' ');  // Replace underscores with spaces
                     listItem.appendChild(link);
                     challengeList.appendChild(listItem);
