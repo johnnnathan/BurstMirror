@@ -6,8 +6,6 @@ window.onload = function () {
 
             const challengeList = document.getElementById("challenge-list");
 
-            // Set the base path for the challenges directory (BurstMirror)
-            const basePath = 'BurstMirror/';  // This assumes the file is inside the BurstMirror directory
             
             if (Array.isArray(data.challenges) && data.challenges.length > 0) {
                 data.challenges.forEach(challenge => {
@@ -15,7 +13,7 @@ window.onload = function () {
                     const link = document.createElement("a");
                     
                     // Update link to include the correct path
-                    link.href = `${basePath}challenges/${challenge}/index.html`; // Correct path
+                    link.href = `BurstMirror/challenges/${challenge}/index.html`; // Correct path
                     link.textContent = challenge.replace(/_/g, ' ');  // Replace underscores with spaces
                     listItem.appendChild(link);
                     challengeList.appendChild(listItem);
