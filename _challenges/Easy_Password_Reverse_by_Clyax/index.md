@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Easy_Password_Reverse_By_Clyax
 ---
 

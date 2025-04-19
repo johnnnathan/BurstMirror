@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Plain Sight By L3A4Dam
 ---
 

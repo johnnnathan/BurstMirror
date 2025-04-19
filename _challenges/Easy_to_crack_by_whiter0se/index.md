@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Easy To Crack By Whiter0Se
 ---
 

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>SimpleCrackmeEzDiaoL | Crackmy Writeups</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="SimpleCrackmeEzDiaoL" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Reverse engineering challenges &amp; solutions" />
+<meta property="og:description" content="Reverse engineering challenges &amp; solutions" />
+<link rel="canonical" href="http://localhost:4000/_challenges/SimpleCrackmeEzDiaoL/index/" />
+<meta property="og:url" content="http://localhost:4000/_challenges/SimpleCrackmeEzDiaoL/index/" />
+<meta property="og:site_name" content="Crackmy Writeups" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="SimpleCrackmeEzDiaoL" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Reverse engineering challenges &amp; solutions","headline":"SimpleCrackmeEzDiaoL","url":"http://localhost:4000/_challenges/SimpleCrackmeEzDiaoL/index/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Crackmy Writeups" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Crackmy Writeups</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/">Crackmes</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+<h2 id="-solution">📝 Solution</h2>
+
+<p>I would like to preface this solution by stating that I encountered issues executing this application, meaning that I was only able to statically analyze the application and could not verify my solution through direct execution. The method which I used should work regardless though and you will be able to use my keygen to generate your own pass.</p>
+
+<p>The application first prints a query message and then stores input of size 12 to a variable. It computes the length of the input up to the newline character and checks whether it is within the allowed limit. The string is null-terminated and it is passed to another function to be operated upon.</p>
+
+<p>Inside the function each character is iterated over and the ASCII value used in a mathematical equation. The result of the function has a base value of 0x1505 and is increased by (result * 0x21 + ASCII Value of the character) for each character. The loop stops when the character is equal to 0, meaning that the null character at the end of the string has been reached. The result is compared against the value of -0x2e180f77, and if they are equal a “Correct” message is shown.</p>
+
+<p>Putting it all together we can start forming a solution. Since the value is supposed to be negative, we need to overflow the result value in the input processing function. The minimum input length required to reach the overflow limit, using the character ‘z’ (which has the highest ASCII value among alphanumeric characters), is 7, while the maximum length can be set as 10 to reduce computations. I created a short script that mirrors the behavior of this application and brute-forced a set amount of passwords, and saved the input that was the closest to the target. Many passwords can be found this way but it is quite unlikely that a perfect combination of characters will be found, this means that if a value is generated that is reasonably close to the target, we can change the final character to match the two values up, since the value will only be subtracted/added and not multiplied by the 0x21 value.</p>
+
+<p>One of the values that I generated was ‘xJX5zI3Q’, but many more are possible.</p>
+
+<!-- Removed static_files assign -->
+<h2 id="-keygen-python">🔑 Keygen (Python)</h2>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;limits.h&gt;</span><span class="c1"> </span><span class="cp">
+</span>
+<span class="kt">int</span> <span class="nf">processInput</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">input_string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">advanced_index</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">result</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">current_index</span><span class="p">;</span>
+    
+    <span class="n">result</span> <span class="o">=</span> <span class="mh">0x1505</span><span class="p">;</span> 
+    <span class="n">advanced_index</span> <span class="o">=</span> <span class="n">input_string</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">current_index</span> <span class="o">=</span> <span class="o">*</span><span class="n">advanced_index</span><span class="p">;</span>
+        <span class="n">advanced_index</span> <span class="o">=</span> <span class="n">advanced_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">current_index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span> 
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">*</span> <span class="mh">0x21</span> <span class="o">+</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">current_index</span><span class="p">;</span> 
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">testInputSizes</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">char</span> <span class="n">input</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">result</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">target_value</span> <span class="o">=</span> <span class="o">-</span><span class="mi">773328759</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">closest_diff</span> <span class="o">=</span> <span class="n">INT_MAX</span><span class="p">;</span>    
+    <span class="kt">char</span> <span class="n">closest_input</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>      
+
+    <span class="kt">char</span> <span class="n">characters</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span> <span class="n">len</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">len</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000000</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> 
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">input</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">characters</span><span class="p">[</span><span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="n">strlen</span><span class="p">(</span><span class="n">characters</span><span class="p">)];</span>
+            <span class="p">}</span>
+            <span class="n">input</span><span class="p">[</span><span class="n">len</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'\0'</span><span class="p">;</span> 
+
+            <span class="n">result</span> <span class="o">=</span> <span class="n">processInput</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+
+            <span class="kt">int</span> <span class="n">diff</span> <span class="o">=</span> <span class="n">abs</span><span class="p">(</span><span class="n">result</span> <span class="o">-</span> <span class="n">target_value</span><span class="p">);</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">diff</span> <span class="o">&lt;</span> <span class="n">closest_diff</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">closest_diff</span> <span class="o">=</span> <span class="n">diff</span><span class="p">;</span>
+                <span class="n">strcpy</span><span class="p">(</span><span class="n">closest_input</span><span class="p">,</span> <span class="n">input</span><span class="p">);</span>  
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="n">target_value</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"Found matching input: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">input</span><span class="p">);</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"Result: %d (Target Value Matched)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
+                <span class="k">return</span><span class="p">;</span> 
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s">"No matching input found.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Closest input: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">closest_input</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Closest result: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">processInput</span><span class="p">(</span><span class="n">closest_input</span><span class="p">));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Difference from target: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">closest_diff</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+
+    <span class="n">testInputSizes</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Crackmy Writeups</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Crackmy Writeups</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Reverse engineering challenges &amp; solutions</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

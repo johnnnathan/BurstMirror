@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Very Easy Ccrackme For Newbies By Matitv
 ---
 

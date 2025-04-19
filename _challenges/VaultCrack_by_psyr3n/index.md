@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Vaultcrack By Psyr3N
 ---
 

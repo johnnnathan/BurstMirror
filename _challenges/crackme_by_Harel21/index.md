@@ -1,5 +1,6 @@
 ---
-title: crackme_by_Harel21 
+layout: default
+title: crackme_by_Harel21
 ---
 
 {% capture solution %}

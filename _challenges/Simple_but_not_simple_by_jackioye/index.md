@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Simple_But_Not_Simple_By_Jackioye
 ---
 

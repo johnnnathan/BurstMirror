@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Simplegame By Jinzi0113
 ---
 

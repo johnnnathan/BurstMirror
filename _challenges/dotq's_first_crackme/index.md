@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Dotq'S First Crackme
 ---
 

@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Find The Pass By Chrisk
 ---
 

@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Pidxploit By Psyr3N
 ---
 

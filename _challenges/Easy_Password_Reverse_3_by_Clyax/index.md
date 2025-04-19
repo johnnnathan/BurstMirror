@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Easy Password Reverse 3 By Clyax
 ---
 

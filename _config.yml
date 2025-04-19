@@ -1,22 +1,22 @@
-title: "Crackme Writeups"
+title: "Crackmy Writeups"
 description: "Reverse engineering challenges & solutions"
 theme: minima
+
+# Apply default layout only to individual challenge index.md files
+defaults:
+  - scope:
+      path: "_challenges"
+      type: challenges
+    values:
+      layout: challenge_page  # Custom layout for challenge pages
+
 
 # Enable the 'challenges' collection
 collections:
   challenges:
-    output: true
-    permalink: /:collection/:path/
-
-# Apply default values/layout to files inside _challenges
-defaults:
-  - scope:
-      path: ""
-      type: challenges
-    values:
-      layout: default
-
+    output: true # Keep this true to generate pages
+    permalink: /_challenges/:path/  # New permalink structure
 # Ensure GitHub Pages includes all files in the collection
 include:
-  - _challenges
   - _challenges/**/*
+

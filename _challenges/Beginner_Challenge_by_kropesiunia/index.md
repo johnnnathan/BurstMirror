@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Beginner Challenge By Kropesiunia
 ---
 

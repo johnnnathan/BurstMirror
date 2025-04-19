@@ -1,8 +1,0 @@
-
-<h2 id="-solution">📝 Solution</h2>
-
-<p>This program uses a lot of code obfuscation at the start of the main function but the location where the password comparison happens is unmodified. The memcmp call can be found and after it a jump that causes the success message to be shown depending on the result. Setting a breakpoint at the memcmp call and looking at the value of the rcx CPU register, will show us the address where the value is stored. Giving the string as input to the program will give us an “Serial key: Ok!” message. The key changes between executions but not between attempts of the same execution.</p>
-
-<p>Have a great day :)
-github.com/johnnnathan</p>
-

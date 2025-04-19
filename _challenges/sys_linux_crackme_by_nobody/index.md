@@ -1,4 +1,5 @@
 ---
+layout: default
 title: sys_linux_crackme_by_nobody
 ---
 

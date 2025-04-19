@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Get The Password By Hn1
 ---
 

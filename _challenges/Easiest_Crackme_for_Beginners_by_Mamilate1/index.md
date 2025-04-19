@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Easiest Crackme For Beginners By Mamilate1
 ---
 

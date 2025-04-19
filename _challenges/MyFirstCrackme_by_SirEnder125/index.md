@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Myfirstcrackme By Sirender125
 ---
 

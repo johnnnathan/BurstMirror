@@ -1,9 +1,0 @@
-
-<h2 id="-solution">📝 Solution</h2>
-
-<p>Using “strings” on the executable returns a fake flag and the messages that we will see when executing the program. The program first asks for a password. Using “Sup3rS3cr3tP455W0rd” as found through “strings”, grants us access to the next stage, where we are asked to provide a code. This stage can not be completed through the previously mentioned method and so we need to open the program in a disassembler. The code is minimally obfuscated and we can see that the variable that was initialized with the scanf call is compared against “0x539” or “1337” in decimal. Passing “1337” to the program as the secret code gives us the flag.</p>
-
-<p>Have a great day :)</p>
-
-<p>github.com/johnnnathan</p>
-

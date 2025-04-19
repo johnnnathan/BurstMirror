@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Baby Keygen 2 By 2Ourc3
 ---
 

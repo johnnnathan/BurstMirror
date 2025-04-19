@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Find Serial Key By Omikronos
 ---
 

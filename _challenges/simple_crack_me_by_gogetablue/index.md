@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Simple Crack Me By Gogetablue
 ---
 

@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Basic Crackme Consolebased By Thefakeking
 ---
 

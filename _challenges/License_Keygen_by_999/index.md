@@ -1,5 +1,6 @@
 ---
-title: License_Keygen_by_999 
+layout: default
+title: License_Keygen_by_999
 ---
 
 {% capture solution %}

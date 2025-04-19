@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>License_Keygen_by_999 | Crackmy Writeups</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="License_Keygen_by_999" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Reverse engineering challenges &amp; solutions" />
+<meta property="og:description" content="Reverse engineering challenges &amp; solutions" />
+<link rel="canonical" href="http://localhost:4000/_challenges/License_Keygen_by_999/index/" />
+<meta property="og:url" content="http://localhost:4000/_challenges/License_Keygen_by_999/index/" />
+<meta property="og:site_name" content="Crackmy Writeups" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="License_Keygen_by_999" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Reverse engineering challenges &amp; solutions","headline":"License_Keygen_by_999","url":"http://localhost:4000/_challenges/License_Keygen_by_999/index/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Crackmy Writeups" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Crackmy Writeups</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/">Crackmes</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+<h2 id="-solution">📝 Solution</h2>
+
+<p>Challenge can be solved using the provided keygen.</p>
+
+<!-- Removed static_files assign -->
+<h2 id="-keygen-python">🔑 Keygen (Python)</h2>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Keygen for "Licence Keygen" By 999
+# 
+# Another .NET program. We will use dotPeek just as we did for "dotqw's first crackme". 
+# I put the application in the program and started searching for objects that I could use to find the password.
+# This crackme uses a gui which makes it easier to detect value handling. I found a method by the name of "GenerateSerialKey" and knew
+# I was close. I looked at the contents of the method and it divided the key into three segments. The first segment 
+# was the basic username, the second the username with "salt1" appended to it and the third one the username with "salt2" appended to it.
+# GenerateSegment was the function that handled all the logic behind the key generation. Since we do not have to deal with assembly, or 
+# pseudocode we can easily transform the .NET code into usable python code.
+#
+# It computes the sha256 hash of the individual segment and then iterates over the first two indexes of the hash while doing some 
+# calculations. It mods the value of the character on the current intex and the one at an offset of 2, using the value 36.
+# Then it takes the ASCII code and through a simple if statement, calculates the values that the segment's key should consist of.
+# 
+# Example:
+#   Username: abcd
+#   Key     : S2W3-I0WI-D9LM
+# 
+#
+# Have a great day :)
+# github.com/johnnnathan
+</span>
+<span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">sha256</span>
+
+<span class="n">username</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"What is your username?</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_segment</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+    <span class="n">hash__</span> <span class="o">=</span> <span class="n">sha256</span><span class="p">(</span><span class="nb">input</span><span class="p">.</span><span class="n">encode</span><span class="p">())</span>
+    <span class="nb">hash</span> <span class="o">=</span> <span class="n">hash__</span><span class="p">.</span><span class="n">digest</span><span class="p">()</span>
+    <span class="n">segment_key</span> <span class="o">=</span> <span class="s">""</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">num1</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="mi">36</span>
+        <span class="n">num2</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span> <span class="o">%</span> <span class="mi">36</span>
+        <span class="n">ch1</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">48</span> <span class="o">+</span> <span class="n">num1</span><span class="p">)</span> <span class="k">if</span> <span class="n">num1</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="k">else</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">65</span> <span class="o">+</span> <span class="p">(</span><span class="n">num1</span> <span class="o">-</span> <span class="mi">10</span><span class="p">))</span>
+        <span class="n">ch2</span> <span class="o">=</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">48</span> <span class="o">+</span> <span class="n">num2</span><span class="p">)</span> <span class="k">if</span> <span class="n">num2</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="k">else</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">65</span> <span class="o">+</span> <span class="p">(</span><span class="n">num2</span> <span class="o">-</span> <span class="mi">10</span><span class="p">))</span>
+        <span class="n">segment_key</span> <span class="o">=</span> <span class="n">segment_key</span> <span class="o">+</span> <span class="n">ch1</span> <span class="o">+</span> <span class="n">ch2</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="n">segment_key</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">segment_key</span><span class="p">)</span>
+
+<span class="n">segment2_input</span> <span class="o">=</span> <span class="n">username</span> <span class="o">+</span> <span class="s">"salt1"</span>
+<span class="n">segment3_input</span> <span class="o">=</span> <span class="n">username</span> <span class="o">+</span> <span class="s">"salt2"</span>
+
+<span class="n">key</span> <span class="o">=</span> <span class="n">get_segment</span><span class="p">(</span><span class="n">username</span><span class="p">)</span> <span class="o">+</span> <span class="s">"-"</span> <span class="o">+</span> <span class="n">get_segment</span><span class="p">(</span><span class="n">segment2_input</span><span class="p">)</span> <span class="o">+</span> <span class="s">"-"</span> <span class="o">+</span>  <span class="n">get_segment</span><span class="p">(</span><span class="n">segment3_input</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"License key is :"</span> <span class="o">+</span> <span class="n">key</span><span class="p">)</span>
+
+
+
+</code></pre></div></div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Crackmy Writeups</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Crackmy Writeups</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Reverse engineering challenges &amp; solutions</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

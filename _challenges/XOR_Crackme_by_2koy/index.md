@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Xor_Crackme_By_2Koy
 ---
 

@@ -1,5 +1,6 @@
 ---
-title: Hyperion 
+layout: default
+title: Hyperion
 ---
 
 {% capture solution %}

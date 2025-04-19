@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Crypted_String_By_Suspekt
 ---
 

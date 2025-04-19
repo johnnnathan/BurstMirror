@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Veryeasycrackme_By_Int2Eh
 ---
 

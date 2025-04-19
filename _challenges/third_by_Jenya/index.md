@@ -1,5 +1,6 @@
 ---
-title: third_by_Jenya 
+layout: default
+title: third_by_Jenya
 ---
 
 {% capture solution %}

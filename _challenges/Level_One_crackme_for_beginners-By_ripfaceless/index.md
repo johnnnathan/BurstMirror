@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Level One Crackme For Beginners By Ripfaceless
 ---
 

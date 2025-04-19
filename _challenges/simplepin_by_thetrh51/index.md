@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Simplepin By Thetrh51
 ---
 

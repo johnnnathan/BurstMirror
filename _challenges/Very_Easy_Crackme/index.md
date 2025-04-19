@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Very_Easy_Crackme
 ---
 

@@ -1,4 +1,5 @@
 ---
+layout: default
 title: 2 Baby Crackme By 2Ourc3
 ---
 

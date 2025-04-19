@@ -1,5 +1,6 @@
 ---
-title: SimpleCrackmeEzDiaoL 
+layout: default
+title: SimpleCrackmeEzDiaoL
 ---
 
 {% capture solution %}

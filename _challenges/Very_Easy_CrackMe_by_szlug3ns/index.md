@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Very Easy Crackme By Szlug3Ns
 ---
 

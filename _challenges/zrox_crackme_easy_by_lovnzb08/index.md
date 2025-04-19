@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Zrox Crackme Easy By Lovnzb08
 ---
 

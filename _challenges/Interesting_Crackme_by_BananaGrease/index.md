@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Interesting_Crackme_By_Bananagrease
 ---
 

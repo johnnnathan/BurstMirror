@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Crackme1 By Xiya974
 ---
 

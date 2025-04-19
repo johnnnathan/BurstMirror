@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Crackme 1 By Imeow256
 ---
 

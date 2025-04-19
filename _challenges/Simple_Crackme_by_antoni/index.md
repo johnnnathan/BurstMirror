@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Simple_Crackme_By_Antoni
 ---
 

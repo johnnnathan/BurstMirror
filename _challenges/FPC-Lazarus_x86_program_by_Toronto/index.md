@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Fpc Lazarus X86 Program By Toronto
 ---
 

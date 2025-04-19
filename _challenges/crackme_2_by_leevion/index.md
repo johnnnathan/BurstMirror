@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Crackme 2 By Leevion
 ---
 

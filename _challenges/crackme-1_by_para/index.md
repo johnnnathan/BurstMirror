@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Crackme 1_By_Para
 ---
 

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Veryeasycrackme_By_Int2Eh | Crackmy Writeups</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Veryeasycrackme_By_Int2Eh" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Reverse engineering challenges &amp; solutions" />
+<meta property="og:description" content="Reverse engineering challenges &amp; solutions" />
+<link rel="canonical" href="http://localhost:4000/_challenges/VeryEasyCrackme_by_int2eh/index/" />
+<meta property="og:url" content="http://localhost:4000/_challenges/VeryEasyCrackme_by_int2eh/index/" />
+<meta property="og:site_name" content="Crackmy Writeups" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Veryeasycrackme_By_Int2Eh" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Reverse engineering challenges &amp; solutions","headline":"Veryeasycrackme_By_Int2Eh","url":"http://localhost:4000/_challenges/VeryEasyCrackme_by_int2eh/index/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Crackmy Writeups" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Crackmy Writeups</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/">Crackmes</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
+<h2 id="-solution">📝 Solution</h2>
+
+<p>Solution to “VeryEasyCrackme” by _int2eh</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>In reality it really was very easy, despite the fact that I spent an hour decoding it :</td>
+      <td>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Load up the program in Ghidra and you found the password, there is not much to it. 
+If you can’t do it yourself the password is “YourPass”.</p>
+
+<p>The problem that I faced was the fact that I could not differentiate between the ‘P’ inside the decompilation and the ‘p’ character because
+they looked too similar. I thought that there was some evil engineer behind this that hid some code in the seams but no.</p>
+
+<p>There is one loop in the main method that XORs the “YourPass” string with 0d10.
+The given password is also XORed using the same value and the result compared to the stored XORed password. 
+So, the stored password is XORed and the given password too, and since the stored password is equal to “YourPass” the given pass should also. 
+Giving “YourPass” as the given password results in a spanish Success message.</p>
+
+<p>There are a couple of debugger checks but they should be easy enough to bypass, using bit flips or nops</p>
+
+<p>Have a great day :)
+github.com/johnnnathan</p>
+
+<!-- Removed static_files assign -->
+<h2 id="-keygen-python">🔑 Keygen (Python)</h2>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># This script is useless, don't use it outside of wanting to see how the un-used transformation happens 
+#
+# Have a great day :)
+# By github.com/johnnnathan 
+</span>
+<span class="n">un_used_password</span> <span class="o">=</span> <span class="s">""</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s">"YourPass"</span>
+<span class="n">key</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">string</span><span class="p">:</span>
+    <span class="n">character</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+    <span class="n">character</span> <span class="o">^=</span> <span class="n">key</span> 
+    <span class="n">password</span> <span class="o">=</span> <span class="n">un_used_password</span><span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">un_used_password</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Crackmy Writeups</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Crackmy Writeups</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Reverse engineering challenges &amp; solutions</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

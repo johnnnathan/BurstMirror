@@ -1,5 +1,6 @@
 ---
-title: kvgs_my_first_crackme 
+layout: default
+title: kvgs_my_first_crackme
 ---
 
 {% capture solution %}

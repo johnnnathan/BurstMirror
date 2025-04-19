@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Basik By Nkrinc
 ---
 

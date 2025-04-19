@@ -1,8 +1,0 @@
-
-<h2 id="-solution">📝 Solution</h2>
-
-<p>Using <code class="language-plaintext highlighter-rouge">strings</code> on this executable does not give us any important information. Opening it with a disassembler and moving to the main function will give us a std::cout and std::cin method call. The given input is compared against <code class="language-plaintext highlighter-rouge">1234</code> not as a string but as an integer. This was why the password could not be found alongside the other strings. Giving “1234” as the input will give us a “YOURE IN!!” message.</p>
-
-<p>Have a great day :) 
-github.com/johnnnathan</p>
-

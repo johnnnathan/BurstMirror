@@ -1,4 +1,5 @@
 ---
+layout: default
 title: My_First_Crackme_By_None404
 ---
 

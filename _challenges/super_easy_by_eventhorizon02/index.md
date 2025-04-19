@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Super Easy By Eventhorizon02
 ---
 
