@@ -10,7 +10,7 @@ window.onload = function() {
             data.challenges.forEach(challenge => {
                 const listItem = document.createElement("li");
                 const link = document.createElement("a");
-                link.href = `/_challenges/${challenge}/index.html`; // Link to the challenge page
+                link.href = `/challenges/${challenge}/index.html`; // Link to the challenge page
                 link.textContent = challenge.replace(/_/g, ' '); // Display challenge name
                 listItem.appendChild(link);
                 challengeList.appendChild(listItem);
