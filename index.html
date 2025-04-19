@@ -13,11 +13,11 @@
           box-sizing: border-box;
       }
 
-      /* Body Styling */
+      /* Body Styling - Dark Mode */
       body {
           font-family: 'Arial', sans-serif;
-          background-color: #f7f7f7;
-          color: #333;
+          background-color: #1c1c1c;
+          color: #e0e0e0;
           line-height: 1.6;
           padding: 20px;
           text-align: center;
@@ -25,19 +25,19 @@
 
       h1 {
           font-size: 2.5rem;
-          color: #333;
+          color: #ffffff;
           margin-bottom: 0.5rem;
       }
 
       p.description {
           font-size: 1.2rem;
-          color: #555;
+          color: #bbbbbb;
           margin-bottom: 2rem;
       }
 
       p.challenge-count {
           font-size: 1rem;
-          color: #555;
+          color: #cccccc;
           margin-bottom: 2rem;
           font-weight: bold;
       }
@@ -50,34 +50,33 @@
           margin: 20px auto;
           max-width: 1200px;
       }
-
-      /* Individual Frame (Box Style) */
       .challenge-frame {
-          background-color: #fff;
-          border: 2px solid #007bff; /* Blue border to make it boxy */
+          background-color: #1e1e1e;
+          border: 2px solid #4682b4; /* Softer Steel Blue border */
           border-radius: 8px;
           padding: 20px;
           text-align: center;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
           transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .challenge-frame:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
       }
 
       .challenge-frame a {
           text-decoration: none;
-          color: #007bff;
+          color: #90caf9; /* Softer link color */
           font-size: 1.2rem;
           font-weight: bold;
           transition: color 0.3s ease;
       }
 
       .challenge-frame a:hover {
-          color: #0056b3;
+          color: #64b5f6; /* Subtle hover color */
       }
+
+      .challenge-frame:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
+      }
+
 
       /* Responsive Design */
       @media (max-width: 768px) {
