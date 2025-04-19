@@ -11,12 +11,12 @@ defaults:
       layout: challenge_page  # Custom layout for challenge pages
 
 
-# Enable the 'challenges' collection
+# Enable the 'challenges' collection and set output to true
 collections:
   challenges:
-    output: true # Keep this true to generate pages
+    output: true  # Ensure pages are generated for individual challenges
     permalink: /_challenges/:path/  # New permalink structure
-# Ensure GitHub Pages includes all files in the collection
-include:
-  - _challenges/**/*
 
+# Do not include _challenges here; Jekyll will handle collections automatically
+exclude:
+  - _challenges/*.md  # Exclude challenge markdown files from other processing
