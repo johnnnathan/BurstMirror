@@ -4,6 +4,7 @@ import html
 CHALLENGES_DIR = "challenges"
 KEYGEN_NAMES = ["keygen.py", "keygen.sh", "keygen.c"]
 
+
 HTML_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +18,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       padding: 2rem;
       text-align: center;
       background-color: #fdfdfd;
+      font-size: 1.2rem; /* Increase base font size */
     }}
     pre {{
       text-align: left;
@@ -24,6 +26,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       padding: 1rem;
       white-space: pre-wrap;
       word-wrap: break-word;
+      font-size: 1.1rem; /* Increase font size for preformatted text */
     }}
     h1, h2 {{
       margin-top: 2rem;
