@@ -1,23 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: kvgs my first crackme</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Kvgs My First Crackme</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>kvgs my first crackme</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">Solution to "my first crackme" by kvfs
+<h1>Kvgs My First Crackme</h1>
+
+<h2>📝 Solution</h2>
+<pre>Solution to &quot;my first crackme&quot; by kvfs
 
 When starting this application we are only asked for a password. Since there is no username requirement I immediately knew that this 
 would use either a static password or a math heavy generation algorithm. I loaded it up in ghidra and found the 
 main method to be quite simple. C/C++ applications usually have an easy to find entry point.  
 
-An output and input call are immediately used to print the message to the terminal and receive the user's password. Then a few variable 
+An output and input call are immediately used to print the message to the terminal and receive the user&#x27;s password. Then a few variable 
 assignments and conditionals can be found that compare a lot of values to 15, and then one final if statement can be found that breaks 
 out of the infinite input loop, if all the conditions are met. Skipping the accompanying jumps in the debugger informs us that the 
 password is correct. Since we know that we need to fullfil the conditions inside that final if statement we should analyze them more. 
@@ -25,10 +43,10 @@ password is correct. Since we know that we need to fullfil the conditions inside
 The output of the memcmp call before it needs to be equal to 0, two variables need to be equal to each other and another variable 
 needs to be greater than 3.
 
-if (memcmpResult == 0 && var2 <= var3 && var3 <= var2 && var4 > 3) can be simplified to if(memcmpResult == 0 && var2 == var3 && var4 > 3)
+if (memcmpResult == 0 &amp;&amp; var2 &lt;= var3 &amp;&amp; var3 &lt;= var2 &amp;&amp; var4 &gt; 3) can be simplified to if(memcmpResult == 0 &amp;&amp; var2 == var3 &amp;&amp; var4 &gt; 3)
 
 The creator of the crackme added in the description that said that the password needs to be at least 3 characters long so we know that 
-that is embodied in the final condition, meaning that we won't have to spend any time on it. 
+that is embodied in the final condition, meaning that we won&#x27;t have to spend any time on it. 
 
 Following the execution of the program inside the debugger we can see that after a custom function call the reversed given password can 
 be seen inside the cpu registers. The length of the password can also be found inside them, assisting me in the decompilation process.
@@ -46,12 +64,29 @@ Ex.
 ABBA
 EeveE
 
-Inputting 11111, or any other palindrome, as the password gives us a "Password Accepted" message.
+Inputting 11111, or any other palindrome, as the password gives us a &quot;Password Accepted&quot; message.
 
 Have a great day :)
 github.com/johnnnathan
-</div>
+</pre>
 
-    <script src="/js/script.js"></script>
+
+<h2>🔑 Keygen</h2>
+<pre>## Keygen for &quot;my_first_crackme&quot; by kvgs
+## Have a great day :)
+## github.com/johnnnathan
+password = input(&quot;What is your password? &quot;)
+
+length = len(password) - 1
+
+for char in range(length):
+    if password[char] != password[length - char]:
+        print(&quot;Password is not valid&quot;)
+        exit(0)
+
+print(&quot;Password &quot; + password + &quot; is valid&quot;)
+</pre>
+
+
 </body>
 </html>

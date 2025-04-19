@@ -1,24 +1,90 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: crackme-1 by para</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Crackme-1 By Para</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>crackme-1 by para</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">The program asks for a key and then calls a function that performs shifts and modulo operations upon its characters. The result of the function is the compared against 0x54a337 and if they are the same a success message is shown. Calculating it by hand would be too difficult so we can brute-force the password. 
+<h1>Crackme-1 By Para</h1>
 
-One of the valid passwords I found was ":Rew" but there might be more.
+<h2>📝 Solution</h2>
+<pre>The program asks for a key and then calls a function that performs shifts and modulo operations upon its characters. The result of the function is the compared against 0x54a337 and if they are the same a success message is shown. Calculating it by hand would be too difficult so we can brute-force the password. 
+
+One of the valid passwords I found was &quot;:Rew&quot; but there might be more.
 
 Have a great day :)
 github.com/johnnnathan
-</div>
+</pre>
 
-    <script src="/js/script.js"></script>
+
+<h2>🔑 Keygen</h2>
+<pre>from itertools import product
+import string
+
+def operate_upon(key):
+    length = 0
+    result = 0
+
+    while key[length] != &#x27;\0&#x27;:
+        length += 1
+
+    length_2 = length  
+
+    i = 0
+
+    while i &lt;= length_2 - 1:
+        result = (ord(key[i]) + (result &lt;&lt; 6)) % 0x989680
+        i += 1
+
+
+    return result
+
+
+
+def find_input_for_result(target_result, max_length=5):
+
+    possible_chars = string.ascii_letters + string.digits + string.punctuation + &#x27; &#x27;
+
+    for length in range(1, max_length + 1):
+        for combination in product(possible_chars, repeat=length):
+            key = &#x27;&#x27;.join(combination) + &#x27;\0&#x27;  
+            result = operate_upon(key)
+            if result == target_result:
+                return &#x27;&#x27;.join(combination)
+
+    return None
+
+target_result = 0x54a337
+
+found_input = find_input_for_result(target_result, max_length=5)
+
+if found_input:
+    print(f&quot;Found input: {found_input}&quot;)
+else:
+    print(&quot;No matching input found within the given length range.&quot;)
+</pre>
+
+
 </body>
 </html>

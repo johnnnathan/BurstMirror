@@ -1,22 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: very easy ccrackme for newbies by matitv</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Very Easy Ccrackme For Newbies By Matitv</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>very easy ccrackme for newbies by matitv</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">Running this application we will see a nice banner and a message asking us for the password. Giving wrong input to the program gives us a failure message and it asks us again for the password until we input the correct password. If we disassemble the program and find the main method we will be able to see the std::cout calls making up the banner of the program. Below the "Write password: " line we can find a comparison of our given password with the string "SweetCake". Giving "SweetCake" as the input to the program will give us a "Congratulations!" message.
+<h1>Very Easy Ccrackme For Newbies By Matitv</h1>
+
+<h2>📝 Solution</h2>
+<pre>Running this application we will see a nice banner and a message asking us for the password. Giving wrong input to the program gives us a failure message and it asks us again for the password until we input the correct password. If we disassemble the program and find the main method we will be able to see the std::cout calls making up the banner of the program. Below the &quot;Write password: &quot; line we can find a comparison of our given password with the string &quot;SweetCake&quot;. Giving &quot;SweetCake&quot; as the input to the program will give us a &quot;Congratulations!&quot; message.
 
 Have a great day :) 
 github.com/johnnnathan
-</div>
+</pre>
 
-    <script src="/js/script.js"></script>
+
+
 </body>
 </html>

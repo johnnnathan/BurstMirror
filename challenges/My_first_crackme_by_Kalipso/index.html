@@ -1,22 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: My first crackme by Kalipso</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>My First Crackme By Kalipso</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>My first crackme by Kalipso</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">The key is stored inside the main function in plaintext. The program first checks if the length of the given password and the stored passwrod are the same and then uses a memcmp call to see if the two are the same. The key is "fdooFPOkfp0[90PFJIKpofj9[00PFJ[OPjkfopj[OPFJ[pfj0PJFOPjfopJFPOjfopk]FolpjfoFjfop[1JKFOPjfpKFLK;jofjKOLP'FJKLjfklFJKf" and if we give it to the program we will get a "Key is correct" message. 
+<h1>My First Crackme By Kalipso</h1>
+
+<h2>📝 Solution</h2>
+<pre>The key is stored inside the main function in plaintext. The program first checks if the length of the given password and the stored passwrod are the same and then uses a memcmp call to see if the two are the same. The key is &quot;fdooFPOkfp0[90PFJIKpofj9[00PFJ[OPjkfopj[OPFJ[pfj0PJFOPjfopJFPOjfopk]FolpjfoFjfop[1JKFOPjfpKFLK;jofjKOLP&#x27;FJKLjfklFJKf&quot; and if we give it to the program we will get a &quot;Key is correct&quot; message. 
 
 Have a great day :)
 github.com/johnnnathan
-</div>
+</pre>
 
-    <script src="/js/script.js"></script>
+
+
 </body>
 </html>

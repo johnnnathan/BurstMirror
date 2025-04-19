@@ -1,19 +1,54 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: sys linux crackme by nobody</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Sys Linux Crackme By Nobody</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>sys linux crackme by nobody</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">The challenge can be solved using the provided keygen.
-</div>
+<h1>Sys Linux Crackme By Nobody</h1>
 
-    <script src="/js/script.js"></script>
+<h2>📝 Solution</h2>
+<pre>The challenge can be solved using the provided keygen.
+</pre>
+
+
+<h2>🔑 Keygen</h2>
+<pre>def reverse_serial():
+    target = 0x70707
+    for password in range(0, 0x1000000):
+        local_20 = (password &amp; 0xff) | 0x37
+        uVar2 = ((password &amp; 0xff0000) - 0x610000) ^ 0x150000
+        uVar1 = (local_20 // 0x11) + ((password &amp; 0x1f00) ^ 0x1e00)
+        if (uVar2^ uVar1) == target:
+            print (f&quot;Found password: {password: #010x}&quot;) 
+            return password
+    print(&quot;No matching password found.&quot;)
+    return None
+# Run the reverse process
+reverse_serial()
+</pre>
+
+
 </body>
 </html>

@@ -1,17 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: HackThisGame</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Hackthisgame</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>HackThisGame</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">The first level of this game requires us to gather 5 Million coins, this would take too long of course to do manually so we will have 
+<h1>Hackthisgame</h1>
+
+<h2>📝 Solution</h2>
+<pre>The first level of this game requires us to gather 5 Million coins, this would take too long of course to do manually so we will have 
 to find the memory location that holds the value of collected coins. This can be done using CheatEngine. 
 Attach CE to the process and then start scanning the memory. Since the value of collected coins appears above the the player 
 model we can use that as the input to the Exact Value Scan Type. Since many memory addresses can hold the same value we will have to do 
@@ -25,8 +43,9 @@ note is the fact that since the origin point of the coordinate system is positio
 instead of increasing, when moving up(GUI libraries like javafx work the same way). There are more addresses this time with the same 
 value, many of them mirroring the address that we are searching for, but the correct one can be found using method we used for Level 1. 
 Change the value of the correct address to -1200, follow the maze until you have reached the end.
-</div>
+</pre>
 
-    <script src="/js/script.js"></script>
+
+
 </body>
 </html>

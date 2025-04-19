@@ -1,27 +1,46 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: PIDXploit by psyr3n</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Pidxploit By Psyr3N</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>PIDXploit by psyr3n</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">Load up the executable in your favourite disassembler and locate the main method. There is a printf call , then a scanf function 
+<h1>Pidxploit By Psyr3N</h1>
+
+<h2>📝 Solution</h2>
+<pre>Load up the executable in your favourite disassembler and locate the main method. There is a printf call , then a scanf function 
 handling our input and a call to _generate_password. Inside the function the ID of the current process is fetched and added to 
-the end of "EndIsNear-". The result is then compared against our input, and a message is shown depending on the result of the condition.
+the end of &quot;EndIsNear-&quot;. The result is then compared against our input, and a message is shown depending on the result of the condition.
 
 The easiest way to find the PID of the program is to open up Task Manager and enable the PID option by right clicking on the name header.
 
 
 Have a great day :)
 github.com/johnnnathan
-</div>
+</pre>
 
-    <script src="/js/script.js"></script>
+
+
 </body>
 </html>

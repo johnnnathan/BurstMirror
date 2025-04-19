@@ -1,22 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: basik by nkrinc</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Basik By Nkrinc</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>basik by nkrinc</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">Running the program makes a terminal window open and immediately shut down again. Disassembling the program to get a better understanding of its functionality will show us that instead of giving the password as typed input, it needs to be passed as an argument. The given password is compared against the string "pizza". Depending on the disassembler that you use it might show up as little endian so you will have to adjust for it. Giving "pizza" as an argument and stepping through the program will show us a success message.
+<h1>Basik By Nkrinc</h1>
+
+<h2>📝 Solution</h2>
+<pre>Running the program makes a terminal window open and immediately shut down again. Disassembling the program to get a better understanding of its functionality will show us that instead of giving the password as typed input, it needs to be passed as an argument. The given password is compared against the string &quot;pizza&quot;. Depending on the disassembler that you use it might show up as little endian so you will have to adjust for it. Giving &quot;pizza&quot; as an argument and stepping through the program will show us a success message.
 
 Have a great day :)
 github.com/johnnnathan
-</div>
+</pre>
 
-    <script src="/js/script.js"></script>
+
+
 </body>
 </html>

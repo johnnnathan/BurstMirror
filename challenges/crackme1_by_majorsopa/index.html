@@ -1,22 +1,54 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: crackme1 by majorsopa</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Crackme1 By Majorsopa</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>crackme1 by majorsopa</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">In the main function of the program we can find a few function calls that accept ciphertext as input. Looking at the function's code we can tell that the input is iterated over character by character and the ascii value operated upon before being stored and eventually returned. The operation itself is a simple XOR with the decimal value of the second parameter of the function. The first call uses the string "1: 1&t <1t$5''#;&0n" and the key 0x54, which if decrypted give us "enter the password:". The second call holds the value of the stored password, if we decrypt it using the same method we will get "1tcCTpT98dQbnqNECHIwj7vy0yjy1t" which if given as the input to the program will give us a success message.
+<h1>Crackme1 By Majorsopa</h1>
+
+<h2>📝 Solution</h2>
+<pre>In the main function of the program we can find a few function calls that accept ciphertext as input. Looking at the function&#x27;s code we can tell that the input is iterated over character by character and the ascii value operated upon before being stored and eventually returned. The operation itself is a simple XOR with the decimal value of the second parameter of the function. The first call uses the string &quot;1: 1&amp;t &lt;1t$5&#x27;&#x27;#;&amp;0n&quot; and the key 0x54, which if decrypted give us &quot;enter the password:&quot;. The second call holds the value of the stored password, if we decrypt it using the same method we will get &quot;1tcCTpT98dQbnqNECHIwj7vy0yjy1t&quot; which if given as the input to the program will give us a success message.
 
 Have a great day :)
 github.com/johnnnathan
-</div>
+</pre>
 
-    <script src="/js/script.js"></script>
+
+<h2>🔑 Keygen</h2>
+<pre>
+def xor_encrypt_decrypt(text, key):
+    return &#x27;&#x27;.join(chr(ord(c) ^ key) for c in text)
+
+
+text = input(&quot;Enter the string: &quot;)
+key = int(input(&quot;Enter the key (0-255): &quot;))  
+result = xor_encrypt_decrypt(text, key)
+
+print(&quot;XOR result:&quot;, result)
+</pre>
+
+
 </body>
 </html>

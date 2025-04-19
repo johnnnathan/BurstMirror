@@ -1,37 +1,74 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: VeryEasyCrackme by int2eh</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Veryeasycrackme By Int2Eh</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>VeryEasyCrackme by int2eh</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">Solution to "VeryEasyCrackme" by _int2eh 
+<h1>Veryeasycrackme By Int2Eh</h1>
+
+<h2>📝 Solution</h2>
+<pre>Solution to &quot;VeryEasyCrackme&quot; by _int2eh 
 
 In reality it really was very easy, despite the fact that I spent an hour decoding it :|.
 
 Load up the program in Ghidra and you found the password, there is not much to it. 
-If you can't do it yourself the password is "YourPass".
+If you can&#x27;t do it yourself the password is &quot;YourPass&quot;.
 
-The problem that I faced was the fact that I could not differentiate between the 'P' inside the decompilation and the 'p' character because
+The problem that I faced was the fact that I could not differentiate between the &#x27;P&#x27; inside the decompilation and the &#x27;p&#x27; character because
 they looked too similar. I thought that there was some evil engineer behind this that hid some code in the seams but no. 
 
-There is one loop in the main method that XORs the "YourPass" string with 0d10.
+There is one loop in the main method that XORs the &quot;YourPass&quot; string with 0d10.
 The given password is also XORed using the same value and the result compared to the stored XORed password. 
-So, the stored password is XORed and the given password too, and since the stored password is equal to "YourPass" the given pass should also. 
-Giving "YourPass" as the given password results in a spanish Success message. 
+So, the stored password is XORed and the given password too, and since the stored password is equal to &quot;YourPass&quot; the given pass should also. 
+Giving &quot;YourPass&quot; as the given password results in a spanish Success message. 
 
 There are a couple of debugger checks but they should be easy enough to bypass, using bit flips or nops
 
 Have a great day :)
 github.com/johnnnathan
-</div>
+</pre>
 
-    <script src="/js/script.js"></script>
+
+<h2>🔑 Keygen</h2>
+<pre># This script is useless, don&#x27;t use it outside of wanting to see how the un-used transformation happens 
+#
+# Have a great day :)
+# By github.com/johnnnathan 
+
+un_used_password = &quot;&quot;
+string = &quot;YourPass&quot;
+key = 10
+
+for char in string:
+    character = ord(char)
+    character ^= key 
+    password = un_used_password+ chr(character)
+
+print(un_used_password)
+</pre>
+
+
 </body>
 </html>

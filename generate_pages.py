@@ -1,59 +1,94 @@
-
 import os
-from jinja2 import Template
-import json
+import html
 
-# Template for the challenge page
-challenge_page_template = """
-<!DOCTYPE html>
+CHALLENGES_DIR = "challenges"
+KEYGEN_NAMES = ["keygen.py", "keygen.sh", "keygen.c"]
+
+HTML_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: {{ title }}</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>{title}</title>
+  <style>
+    body {{
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }}
+    pre {{
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }}
+    h1, h2 {{
+      margin-top: 2rem;
+    }}
+  </style>
 </head>
 <body>
-    <h1>{{ title }}</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">{{ solution }}</div>
+<h1>{title}</h1>
 
-    <script src="/js/script.js"></script>
+<h2>📝 Solution</h2>
+<pre>{solution}</pre>
+
+{keygen_section}
+
 </body>
 </html>
 """
 
-# Path to the _challenges directory
-challenges_dir = "_challenges"
+KEYGEN_TEMPLATE = """
+<h2>🔑 Keygen</h2>
+<pre>{keygen_content}</pre>
+"""
 
-# Get the list of all challenge folders
-challenges = [f for f in os.listdir(challenges_dir) if os.path.isdir(os.path.join(challenges_dir, f))]
+def format_title(folder_name):
+    return folder_name.replace("_", " ").title()
 
-# Create a list to store challenge folder names for challenges.json
-challenge_data = {"challenges": challenges}
+def read_file(filepath):
+    if os.path.exists(filepath):
+        with open(filepath, "r", encoding="utf-8") as f:
+            return html.escape(f.read())
+    return ""
 
-# Write the list of challenges to a JSON file for JavaScript usage
-with open("challenges.json", "w") as json_file:
-    json.dump(challenge_data, json_file)
+def get_keygen_code(folder_path):
+    for name in KEYGEN_NAMES:
+        path = os.path.join(folder_path, name)
+        if os.path.isfile(path):
+            return read_file(path)
+    return ""
 
-# Iterate over each challenge folder and generate an index.html page
-for challenge in challenges:
-    # Read the solution.txt file for the challenge
-    solution_file = os.path.join(challenges_dir, challenge, "solution.txt")
-    try:
-        with open(solution_file, 'r') as f:
-            solution_text = f.read()
-    except FileNotFoundError:
-        solution_text = "Solution not found."
+def main():
+    for folder in os.listdir(CHALLENGES_DIR):
+        folder_path = os.path.join(CHALLENGES_DIR, folder)
+        if not os.path.isdir(folder_path):
+            continue
 
-    # Use Jinja2 template to fill in the details
-    template = Template(challenge_page_template)
-    rendered_page = template.render(title=challenge.replace('_', ' '), solution=solution_text)
+        title = format_title(folder)
+        solution = read_file(os.path.join(folder_path, "solution.txt"))
+        keygen_code = get_keygen_code(folder_path)
 
-    # Write the generated HTML content to the challenge folder
-    output_file = os.path.join(challenges_dir, challenge, "index.html")
-    with open(output_file, 'w') as f:
-        f.write(rendered_page)
+        keygen_section = ""
+        if keygen_code:
+            keygen_section = KEYGEN_TEMPLATE.format(keygen_content=keygen_code)
 
-print("Challenge pages and challenges.json generated successfully.")
+        html_output = HTML_TEMPLATE.format(
+            title=title,
+            solution=solution,
+            keygen_section=keygen_section
+        )
+
+        output_path = os.path.join(folder_path, "index.html")
+        with open(output_path, "w", encoding="utf-8") as f:
+            f.write(html_output)
+
+        print(f"✅ Generated: {output_path}")
+
+if __name__ == "__main__":
+    main()

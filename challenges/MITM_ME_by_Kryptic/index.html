@@ -1,24 +1,43 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: MITM ME by Kryptic</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Mitm Me By Kryptic</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>MITM ME by Kryptic</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">To solve this challenge we don't need to analyse the binary but rather the behavior of the website. The website sends a packet every 10 seconds and it contains a "cracked" field that is set to true. To intercept the packet we can use BurpSuite and use the proxy mode with the custom browser. Open the page in the browser and then look at the intercepted packets. Send it to the Repeater tab and turn the "false" value to "true". We will then get a response containing the password.
+<h1>Mitm Me By Kryptic</h1>
+
+<h2>📝 Solution</h2>
+<pre>To solve this challenge we don&#x27;t need to analyse the binary but rather the behavior of the website. The website sends a packet every 10 seconds and it contains a &quot;cracked&quot; field that is set to true. To intercept the packet we can use BurpSuite and use the proxy mode with the custom browser. Open the page in the browser and then look at the intercepted packets. Send it to the Repeater tab and turn the &quot;false&quot; value to &quot;true&quot;. We will then get a response containing the password.
 
 InBhc3N3b3JkIjoiaUFtU29TbWFydC1TTVJUMTExMS1NSVRNISI=
 
 Have a great day :)
 github.com/johnnnathan
-</div>
+</pre>
 
-    <script src="/js/script.js"></script>
+
+
 </body>
 </html>

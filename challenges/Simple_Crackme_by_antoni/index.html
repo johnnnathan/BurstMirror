@@ -1,22 +1,54 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: Simple Crackme by antoni</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Simple Crackme By Antoni</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>Simple Crackme by antoni</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">This program uses some heavy code obfuscation which results in the main function and strings being difficult to find. Searching for the debug message that is given will land us in the "main" function. Here input and output is handled as well as the validation of the given key. The program loops over all of the characters of the given key and XORs them with the value 0xaa. The resulting character is compared against the bytes of the stored password and if they are all correct a "good job!" message is shown. 
+<h1>Simple Crackme By Antoni</h1>
+
+<h2>📝 Solution</h2>
+<pre>This program uses some heavy code obfuscation which results in the main function and strings being difficult to find. Searching for the debug message that is given will land us in the &quot;main&quot; function. Here input and output is handled as well as the validation of the given key. The program loops over all of the characters of the given key and XORs them with the value 0xaa. The resulting character is compared against the bytes of the stored password and if they are all correct a &quot;good job!&quot; message is shown. 
 
 Have a great day :)
 github.com/johnnnathan
-</div>
+</pre>
 
-    <script src="/js/script.js"></script>
+
+<h2>🔑 Keygen</h2>
+<pre>def get_password():
+    enc = [0xeb, 0xc6, 0xcb, 0x8a, 0xc7, 0xcb, 0x8a, 0xc1, 0xc5, 0xde, 0xcb, 0x84]
+    key = 0xaa
+    password = &#x27;&#x27;.join(chr(b ^ key) for b in enc)
+    return password 
+
+if __name__ == &quot;__main__&quot;:
+    pw = get_password();
+    # The password needs to be given as an argument surrounded by single quotes, otherwise the program won&#x27;t read them properly
+    print(pw)
+</pre>
+
+
 </body>
 </html>

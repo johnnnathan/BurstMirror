@@ -1,32 +1,50 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: Interesting Crackme by BananaGrease</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Interesting Crackme By Bananagrease</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>Interesting Crackme by BananaGrease</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">Solution to "Interesting Crackme" by BananaGrease
+<h1>Interesting Crackme By Bananagrease</h1>
+
+<h2>📝 Solution</h2>
+<pre>Solution to &quot;Interesting Crackme&quot; by BananaGrease
 
 Very simple challenge, to get back into groove. I completed this challenge through just the debugger.
 
 Load up the executable into your debugger and search for strings. There is a string for the failure scenario
 and one for the success scenario. My debugger did not stop at them so I spread out breaks at many points in the function. 
 
-I gave as username the string "abcdefgh" and as password the string "1231231231231231" (I explain this later). On the stack
-there is a string with the value of "acegikmo()*+,-./". With some pattern recognition you can tell that the characters of the 
+I gave as username the string &quot;abcdefgh&quot; and as password the string &quot;1231231231231231&quot; (I explain this later). On the stack
+there is a string with the value of &quot;acegikmo()*+,-./&quot;. With some pattern recognition you can tell that the characters of the 
 username are incremented by a certain value and the remaining characters filled up with a set pattern (This can be seen 
 through using different combinations).
 
 The amount they get incremented by is their position inside the string. So the first element gets incremented by 0, the second 
 by 1, the third by 2 etc. since we use 0-indexing.
 
-By setting the username to 0 we can find that the pattern is "X!\"#$%&'()*+,-./"(More on this under the end note). 
+By setting the username to 0 we can find that the pattern is &quot;X!\&quot;#$%&amp;&#x27;()*+,-./&quot;(More on this under the end note). 
 
 What remains is putting all the information together and writing a keygen.
 
@@ -36,8 +54,29 @@ What remains is putting all the information together and writing a keygen.
 The set pattern is not actually set, it is a by-product of the way the application is programmed, as can be seen through the 
 code posted by the creator of the challenge. The password string is initialized with spaces which means that incrementing the 
 value with the position index will result in the symbol pattern found.
-</div>
+</pre>
 
-    <script src="/js/script.js"></script>
+
+<h2>🔑 Keygen</h2>
+<pre>## Keygen for &quot;Interesting Crackme&quot; by BananaGrease
+## 
+## Have a great day :)
+## github.com/johnnnathan
+
+name = list(input(&quot;Give the username: &quot;))
+
+
+for i in range(13):
+    name += &quot; &quot;
+
+
+for char in range(len(name)):
+    name[char] = chr(char + ord(name[char]))
+
+for char in range(len(name)):
+    print(name[char], end=&quot;&quot;)
+</pre>
+
+
 </body>
 </html>

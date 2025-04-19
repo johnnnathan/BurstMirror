@@ -1,19 +1,61 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: crackme by Harel21</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Crackme By Harel21</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>crackme by Harel21</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">The challenge can be solved using the provided keygen.
-</div>
+<h1>Crackme By Harel21</h1>
 
-    <script src="/js/script.js"></script>
+<h2>📝 Solution</h2>
+<pre>The challenge can be solved using the provided keygen.
+</pre>
+
+
+<h2>🔑 Keygen</h2>
+<pre>def username_handler(username):
+    length = len(username)
+    length_int = length
+
+    if (length_int - 1) % 2 == 0:
+        length_int = length_int - 1
+        if length_int &gt; 2:
+            length_int = (ord(username[2]) * 0x240e) // 2 + 1
+    else: 
+        length_int = (length_int - 1) * 0x9d9fd
+        if length_int &lt; 0:
+            length_int += 3 
+        length_int = ((length_int &gt;&gt; 2) * 0xd) // 7 
+
+    return length_int
+
+
+username = input(&quot;Enter your username: &quot;)
+password = username_handler(username)
+print(f&quot;The correct password is {password}&quot;)
+</pre>
+
+
 </body>
 </html>

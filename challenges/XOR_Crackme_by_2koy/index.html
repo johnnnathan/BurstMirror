@@ -1,17 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: XOR Crackme by 2koy</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Xor Crackme By 2Koy</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>XOR Crackme by 2koy</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">Solution to "XOR Crackme" by 2koy 
+<h1>Xor Crackme By 2Koy</h1>
+
+<h2>📝 Solution</h2>
+<pre>Solution to &quot;XOR Crackme&quot; by 2koy 
 
 This is a simple C++ crackme that should not take more than half an hour to solve for even the newest Reverse Engineers.
 
@@ -26,20 +44,48 @@ we can find some unimportant steps and at the end an XOR application that is app
 characters are XORed with is ox4b which translates to 75 in decimal. We can then see that a value is compared to 0xb(11) and then 
 a memcmp call which uses the generated password alongside another value. 
 
-The other value is definitely the stored password but turning it into string and giving it as input won't work, because of the XOR 
+The other value is definitely the stored password but turning it into string and giving it as input won&#x27;t work, because of the XOR 
 operation. I spent some time thinking about ways to reverse the XOR operations and then realized that the inverse of XOR is XOR itself. 
 We need to run the stored password through the XOR operation using the value of 0x4b and then use the result as the password. 
 
 The hex representation 0x2f39243c38382a1b393e04 is in little endian so we will have to input the characters in reverse. XORing the 
-string per two hex symbols(remember, ASCII has 256 symbols which is one byte or two hex values(16*16 = 256)) gives us "drowssaPruO" or 
-"OurPassword" in Big-Endian. 
+string per two hex symbols(remember, ASCII has 256 symbols which is one byte or two hex values(16*16 = 256)) gives us &quot;drowssaPruO&quot; or 
+&quot;OurPassword&quot; in Big-Endian. 
 
 Giving it as an input and stepping through the assembly gives us a Access Granted message.
 
 Have a great day :)
 github.com/johnnnathan
-</div>
+</pre>
 
-    <script src="/js/script.js"></script>
+
+<h2>🔑 Keygen</h2>
+<pre>string = &quot;2f39243c38382a1b393e04&quot; 
+key = 75
+
+final_password = &quot;&quot;
+
+
+for ASCII in range(0, len(string), 2):
+    # Get the two hex values that form an ASCII symbol
+    hex_pair = string[ASCII : ASCII + 2]
+
+    # Translate the hex value to decimal notation
+    decimal_value = int(hex_pair, 16)
+
+    # Perform the XOR operation using the key (0x4b or 0d75)
+    result = decimal_value ^ key
+
+    # Turn the ASCII code into the ASCII symbol
+    character = chr(result)
+
+    # Append the resulting ASCII symbol to the start of the string to reverse its little-Endianness
+    final_password = character + final_password
+
+# print the Resulting, and stored, password. Should be &quot;OurPassword&quot;
+print(final_password)
+</pre>
+
+
 </body>
 </html>

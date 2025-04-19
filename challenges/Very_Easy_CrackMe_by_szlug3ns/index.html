@@ -1,22 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: Very Easy CrackMe by szlug3ns</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Very Easy Crackme By Szlug3Ns</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>Very Easy CrackMe by szlug3ns</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">For this challenge we can use only a debugger to find the password. Inside the main function set a breakpoint before the memcmp call and look at the CPU registers, inside rdx you will be able to find "1ecc7dd7b9763028e119e5046268d922" which if given as input will show us a "Congrats!" message.
+<h1>Very Easy Crackme By Szlug3Ns</h1>
+
+<h2>📝 Solution</h2>
+<pre>For this challenge we can use only a debugger to find the password. Inside the main function set a breakpoint before the memcmp call and look at the CPU registers, inside rdx you will be able to find &quot;1ecc7dd7b9763028e119e5046268d922&quot; which if given as input will show us a &quot;Congrats!&quot; message.
 
 Have a great day :)
 github.com/johnnnathan
-</div>
+</pre>
 
-    <script src="/js/script.js"></script>
+
+
 </body>
 </html>

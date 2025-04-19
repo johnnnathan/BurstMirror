@@ -1,22 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: 100HealthGame by Aryan123</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>100Healthgame By Aryan123</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>100HealthGame by Aryan123</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">A valid solution for this challenge according to the creator is to patch the program so that the health increases by 10, instead of decreasing, when the "Enter" key is pressed. Inside the main function we can find `SUB dword ptr [ESP + 1c], 0xa`. Inside ghidra we can right click the operation and patch it. Instead of using the "SUB" operation we will use the "ADD" operation. We can then export the program and execute it. We will see that in our version the health value goes up.
+<h1>100Healthgame By Aryan123</h1>
+
+<h2>📝 Solution</h2>
+<pre>A valid solution for this challenge according to the creator is to patch the program so that the health increases by 10, instead of decreasing, when the &quot;Enter&quot; key is pressed. Inside the main function we can find `SUB dword ptr [ESP + 1c], 0xa`. Inside ghidra we can right click the operation and patch it. Instead of using the &quot;SUB&quot; operation we will use the &quot;ADD&quot; operation. We can then export the program and execute it. We will see that in our version the health value goes up.
 
 Have a great day :)
 github.com/johnnnathan
-</div>
+</pre>
 
-    <script src="/js/script.js"></script>
+
+
 </body>
 </html>

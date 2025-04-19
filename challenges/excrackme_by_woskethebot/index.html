@@ -1,33 +1,52 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: excrackme by woskethebot</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Excrackme By Woskethebot</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>excrackme by woskethebot</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">This challenge can be solved through static analysis, but I found the decompilation to be a bit annoying to read, so I used a 
+<h1>Excrackme By Woskethebot</h1>
+
+<h2>📝 Solution</h2>
+<pre>This challenge can be solved through static analysis, but I found the decompilation to be a bit annoying to read, so I used a 
 debugger instead.
 
   
 
-Load up the executable into x64dbg and search for strings. Follow the "enter license key:" string to find the main method. 
+Load up the executable into x64dbg and search for strings. Follow the &quot;enter license key:&quot; string to find the main method. 
 At one point in the function there are three comparisons, alongside their corresponding jumps, in quick succession. 
-The innermost jump breaks out of the loop that keeps asking for input when it's wrong. The first condition checks if 
+The innermost jump breaks out of the loop that keeps asking for input when it&#x27;s wrong. The first condition checks if 
 the length of the input is equal to 5, the second checks if the first four characters are equal to 0x30343132, and 
-the third one if the final character is equal to '1'. Giving "04121" as the input to the program won't work because 
+the third one if the final character is equal to &#x27;1&#x27;. Giving &quot;04121&quot; as the input to the program won&#x27;t work because 
 the data has been formatted in Little Endian, this means that we have to reverse the first part of the input. 
-If we pass "21401"  as input to the program we will get a "Correct Key" message.
+If we pass &quot;21401&quot;  as input to the program we will get a &quot;Correct Key&quot; message.
 
 Have a great day :)
 github.com/johnnnathan
-</div>
+</pre>
 
-    <script src="/js/script.js"></script>
+
+
 </body>
 </html>

@@ -1,22 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: MyFirstCrackme by SirEnder125</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Myfirstcrackme By Sirender125</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>MyFirstCrackme by SirEnder125</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">Using GDB we can quickly solve this challenge. Disassembling the main function and using 'x/s' on one of the string addresses will show us the string "crackmes4ever:)". Giving that will show us a "Correct" message. We are then asked to provide a pin to the program. In the disassembly of the test function we can find a "strlen" call with a comparison with 0xf immediately after. The content of the pin is not examined, only the length of it, so any combination of characters that is equal to 15 is correct. The length should be 15 and not 16 because the newline character at the end is also considered.
+<h1>Myfirstcrackme By Sirender125</h1>
+
+<h2>📝 Solution</h2>
+<pre>Using GDB we can quickly solve this challenge. Disassembling the main function and using &#x27;x/s&#x27; on one of the string addresses will show us the string &quot;crackmes4ever:)&quot;. Giving that will show us a &quot;Correct&quot; message. We are then asked to provide a pin to the program. In the disassembly of the test function we can find a &quot;strlen&quot; call with a comparison with 0xf immediately after. The content of the pin is not examined, only the length of it, so any combination of characters that is equal to 15 is correct. The length should be 15 and not 16 because the newline character at the end is also considered.
 
 Have a great day :)
 github.com/johnnnathan
-</div>
+</pre>
 
-    <script src="/js/script.js"></script>
+
+
 </body>
 </html>

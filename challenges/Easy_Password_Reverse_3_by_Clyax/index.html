@@ -1,22 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: Easy Password Reverse 3 by Clyax</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Easy Password Reverse 3 By Clyax</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>Easy Password Reverse 3 by Clyax</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">Since the creator of the challenge specifies that any form of solution is accepted we will just use a debugger to get the correct password. The stored password seems to be pseudo-random changing every time the program is ran. At the point where we need to give the password to the program we can look at the CPU registers and find the stored password inside R13. Giving the stored password as input will give us a success message.
+<h1>Easy Password Reverse 3 By Clyax</h1>
+
+<h2>📝 Solution</h2>
+<pre>Since the creator of the challenge specifies that any form of solution is accepted we will just use a debugger to get the correct password. The stored password seems to be pseudo-random changing every time the program is ran. At the point where we need to give the password to the program we can look at the CPU registers and find the stored password inside R13. Giving the stored password as input will give us a success message.
 
 Have a great day :)
 github.com/johnnnathan
-</div>
+</pre>
 
-    <script src="/js/script.js"></script>
+
+
 </body>
 </html>

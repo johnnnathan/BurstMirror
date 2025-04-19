@@ -1,26 +1,45 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: super easy by eventhorizon02</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Super Easy By Eventhorizon02</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>super easy by eventhorizon02</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">Load up ghidra and open the binary.
+<h1>Super Easy By Eventhorizon02</h1>
 
-Inside the main function there is a call to "check_pass()". Follow the call and you will see two interesting things. The password is 
+<h2>📝 Solution</h2>
+<pre>Load up ghidra and open the binary.
+
+Inside the main function there is a call to &quot;check_pass()&quot;. Follow the call and you will see two interesting things. The password is 
 passed to the program through arguments, and the length of the password needs to be a multiple of three, while also being a 
 prime number. Looking up a list of 3 digit prime numbers and passing a few of them as input to the program will grant us a flag.
 
 Have a great day :)
 github.com/johnnnathan
-</div>
+</pre>
 
-    <script src="/js/script.js"></script>
+
+
 </body>
 </html>

@@ -1,22 +1,55 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge: Baby Keygen 3 by 2ourc3</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <title>Baby Keygen 3 By 2Ourc3</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #fdfdfd;
+    }
+    pre {
+      text-align: left;
+      background: #f0f0f0;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <h1>Baby Keygen 3 by 2ourc3</h1>
-    <h2>📝 Solution</h2>
 
-    <div id="solution-container">This program requests three keys from the user and if they are all valid the flag gets shown. Inside the "valid_key()" function the program checks if the string has a length of 11 and if the first character of the string is equal to "A" and the fourth and eighth equal to "-", no other characters are checked so we can randomly pick their values. The same key can also be used, so using "A----------" three times will grant us the flag.
+<h1>Baby Keygen 3 By 2Ourc3</h1>
+
+<h2>📝 Solution</h2>
+<pre>This program requests three keys from the user and if they are all valid the flag gets shown. Inside the &quot;valid_key()&quot; function the program checks if the string has a length of 11 and if the first character of the string is equal to &quot;A&quot; and the fourth and eighth equal to &quot;-&quot;, no other characters are checked so we can randomly pick their values. The same key can also be used, so using &quot;A----------&quot; three times will grant us the flag.
 
 Have a great day :)
 github.com/johnnnathan
-</div>
+</pre>
 
-    <script src="/js/script.js"></script>
+
+<h2>🔑 Keygen</h2>
+<pre>import random
+import string
+
+def create_random_string():
+    s = [&#x27;A&#x27;] + [random.choice(string.ascii_letters + string.digits) for _ in range(10)]  
+    s[3] = &#x27;-&#x27;  
+    s[7] = &#x27;-&#x27;
+    return &#x27;&#x27;.join(s)
+
+result = create_random_string()
+print(result)  
+</pre>
+
+
 </body>
 </html>
