@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge: FPC-Lazarus x86 program by Toronto</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>FPC-Lazarus x86 program by Toronto</h1>
+    <h2>📝 Solution</h2>
+
+    <div id="solution-container">In the description of the challenge we can see that the program was written in the Lazarus language, this means that we won't be able to determine what is happening by using the classic c/c++ function calls. The lazarus language is easy to understand when decompiled though. There are a few function calls that setup the input and output. Before the first conditional statement we can find a call to "FPC_ANSISTR_COMPARE_EQUAL" which compares the value that we gave to the second argument. The second argument is stored in plaintext and is "11111". Giving "11111" as input will give us a success message.
+
+Have a great day :)
+github.com/johnnnathan
+</div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge: Christmas Crackme by objectiveSquid</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Christmas Crackme by objectiveSquid</h1>
+    <h2>📝 Solution</h2>
+
+    <div id="solution-container">Inside the main function a memcmp call is made with the given password and the stored password. Set a breakpoint at the memcmp call and inside the EAX register you will be able to find the password. Giving "Santa123" as the password will show us a success message. The application is 32 bit so you will have to use a debugger that is able to handle it, Binary Ninja cannot but x32dbg can.
+
+Have a great day :)
+github.com/johnnnathan
+</div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

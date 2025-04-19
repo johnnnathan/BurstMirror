@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge: Crackme C#</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Crackme C#</h1>
+    <h2>📝 Solution</h2>
+
+    <div id="solution-container">When I ran this executable I was met with a wall of "?"s, this is because the author didn't write his messages in English, and thus the system can't print them (at least in my case). This is a C# executable and that means that we can use dotPeek to decompile it, and get the original source code.
+
+  
+
+The program consists of three small functions and they are all easy to understand. The main method handles input and output, the VerifyKey method handles length checks and key verification, and the GenerateCorrectKey method generates the key that will be compared against the input.
+
+  
+
+In the VerifyKey method we see that false is returned if the length of the input is not equal to 16. Then in the GenerateCorrectKey method the current time in the format of "yyyyMMddHHmmss" is put through the SHA256 hashing algorithm, and the 16 first characters returned in order to be compared against the input. If the input is equal to the first 16 characters of the hash, the program accepts the user.
+
+  
+
+Have a great day :)
+
+  
+github.com/johnnnathan
+</div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

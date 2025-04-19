@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge: Crackme Speedrun by piggy63</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Crackme Speedrun by piggy63</h1>
+    <h2>📝 Solution</h2>
+
+    <div id="solution-container">Open the executable using x32dbg, search for strings and find the "Password:" string. Near it you can find "qwerty" saved as a string. Before the strcmp call there is another function call that performs anti-debugging, turn that into nop and step through the execution, you will be able to see a "Correct" message before the window shuts down.
+
+
+Have a great day :)
+github.com/johnnnathan
+</div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

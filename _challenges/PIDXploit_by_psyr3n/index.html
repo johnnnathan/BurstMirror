@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge: PIDXploit by psyr3n</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>PIDXploit by psyr3n</h1>
+    <h2>📝 Solution</h2>
+
+    <div id="solution-container">Load up the executable in your favourite disassembler and locate the main method. There is a printf call , then a scanf function 
+handling our input and a call to _generate_password. Inside the function the ID of the current process is fetched and added to 
+the end of "EndIsNear-". The result is then compared against our input, and a message is shown depending on the result of the condition.
+
+The easiest way to find the PID of the program is to open up Task Manager and enable the PID option by right clicking on the name header.
+
+
+Have a great day :)
+github.com/johnnnathan
+</div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

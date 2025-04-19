@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge: CrackMe by Shai</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>CrackMe by Shai</h1>
+    <h2>📝 Solution</h2>
+
+    <div id="solution-container">Open x64dbg and load up the executable, find the "Enter the password: " string and break at: cmp qword ptr ss:[rsp+30],9. Now, right 
+click on the line and Follow the address into the dump. There you should be able to see "G0Cr@ckM3" which is the value that the 
+given password is being compared to.
+
+Have a great day :)
+github.com/johnnnathan
+</div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
