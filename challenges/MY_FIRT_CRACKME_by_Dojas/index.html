@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Firt Crackme By Dojas</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #1c1c1c;
+      color: #e0e0e0;
+      font-size: 1.2rem;
+    }
+    pre {
+      text-align: left;
+      background: #2a2a2a;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      font-size: 1.1rem;
+      color: #c5c8c6;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+      color: #ffffff;
+    }
+    a {
+      color: #80cbc4;
+    }
+  </style>
+</head>
+<body>
+
+<h1>My Firt Crackme By Dojas</h1>
+
+<h2>📝 Solution</h2>
+<pre>This program iterates over all of the characters of the username and performs a character-wise xor operation with the key 0x4. Then it adds the length of the username to the xored value and stores it in a different variable. If the resulting string is equal to the given password, a success message is show.
+
+  
+
+Example:
+
+  
+Username:
+asdf
+
+  
+
+Password:
+
+  
+ i{df 
+
+  
+
+Have a great day :)
+
+  
+github.com/johnnnathan
+</pre>
+
+
+<h2>🔑 Keygen</h2>
+<pre>def modify(input_string):
+    modified_string = &quot;&quot;
+    l = len(input_string)
+    
+    for char in input_string:
+        mod_char = chr((ord(char) ^ 4 ) + l)
+        modified_string += mod_char
+    return modified_string
+    
+input_string = input(&quot;Enter string: &quot;)
+result = modify(input_string)
+print(&quot;Password: &quot;, result)
+</pre>
+
+
+</body>
+</html>

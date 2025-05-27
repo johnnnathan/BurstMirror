@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ezwan2 By Dirkd</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #1c1c1c;
+      color: #e0e0e0;
+      font-size: 1.2rem;
+    }
+    pre {
+      text-align: left;
+      background: #2a2a2a;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      font-size: 1.1rem;
+      color: #c5c8c6;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+      color: #ffffff;
+    }
+    a {
+      color: #80cbc4;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Ezwan2 By Dirkd</h1>
+
+<h2>📝 Solution</h2>
+<pre>This program stores the string &quot;Congratulations you did it!&quot; in a variable, and 0x32b6e514 in another. Then the length of the input gets validated to make sure that it is not larger than 8 characters long. 8 iterations are performed, where the character of the message at the index determined by the lowest four bytes of the hex value is compared against the ith character of the input. The program exits out if they are not equal, and at the end of each iteration the hexadecimal value is shifted to the right by 4 bits.
+
+  
+
+Simply put, iterate over the hexadecimal value in reverse and find the character in the string at that position. Finding all the values gives us
+
+  
+ roasting 
+
+  
+
+, which if given as input will show us the success message.
+
+  
+
+Have a great day :)
+github.com/johnnnathan
+</pre>
+
+
+<h2>🔑 Keygen</h2>
+<pre>def get_password():
+  message = &quot;Congratulations you did it!&quot;
+  enc_string = 0x32b6e514
+  password = &quot;&quot;
+
+  for _ in range(8):
+    index = enc_string &amp; 0xf
+    password += message[index]
+    enc_string &gt;&gt;= 4
+
+  return password 
+
+print(&quot;Password is: &quot;, get_password())
+</pre>
+
+
+</body>
+</html>

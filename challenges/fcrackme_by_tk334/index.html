@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fcrackme By Tk334</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      text-align: center;
+      background-color: #1c1c1c;
+      color: #e0e0e0;
+      font-size: 1.2rem;
+    }
+    pre {
+      text-align: left;
+      background: #2a2a2a;
+      padding: 1rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      font-size: 1.1rem;
+      color: #c5c8c6;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    h1, h2 {
+      margin-top: 2rem;
+      color: #ffffff;
+    }
+    a {
+      color: #80cbc4;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Fcrackme By Tk334</h1>
+
+<h2>📝 Solution</h2>
+<pre>The program reads our username and password and then verifies if it is a correct combination. The program runs the length of the username through a function that determines if it&#x27;s from 2 to 7 characters long the correct password is the username with &quot;@fsociety&quot; appended to the end of it. If it&#x27;s longer than 7 characters it adds &quot;Mr.&quot; to the start of the username as the password.
+
+  
+
+Example:
+
+Username:
+ as 
+Password:
+ as@fsociety 
+
+Username:
+ asdasdas 
+Password:
+ Mr.asdasdas 
+
+Have a great day :)
+
+  
+github.com/johnnnathan
+</pre>
+
+
+<h2>🔑 Keygen</h2>
+<pre>def generate_password(username):
+    length = len(username)
+    if 2 &lt;= length &lt;= 7:
+        return username + &quot;@fsociety&quot;
+    elif length &gt; 7:
+        return &quot;Mr.&quot; + username
+    else:
+        return None
+
+def main():
+    username = input(&quot;Enter your username: &quot;)
+    password = generate_password(username)
+    if password:
+        print(f&quot;Generated password: {password}&quot;)
+    else:
+        print(&quot;Username must be at least 2 characters long.&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</pre>
+
+
+</body>
+</html>
