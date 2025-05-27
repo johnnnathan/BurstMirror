@@ -12,15 +12,12 @@ window.onload = function () {
 
                 // Loop through challenges and create the list items
                 data.challenges.forEach(challenge => {
-                    const listItem = document.createElement("div");
-                    listItem.classList.add("challenge-frame");
-
                     const link = document.createElement("a");
-                    link.href = `challenges/${challenge}/index.html`; // Correct path
-                    link.textContent = challenge.replace(/_/g, ' ');  // Replace underscores with spaces
-                    
-                    listItem.appendChild(link);
-                    challengeList.appendChild(listItem);
+                    link.href = `challenges/${challenge}/index.html`;
+                    link.classList.add("challenge-frame");
+                    link.textContent = challenge.replace(/_/g, ' ');  // Make the whole box text
+
+                    challengeList.appendChild(link);
                 });
             } else {
                 challengeCount.textContent = "No challenges found.";
