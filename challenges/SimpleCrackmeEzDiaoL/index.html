@@ -39,7 +39,14 @@
 <h1>Simplecrackmeezdiaol</h1>
 
 <h2>📝 Solution</h2>
-<pre>I would like to preface this solution by stating that I encountered issues executing this application, meaning that I was only able to statically analyze the application and could not verify my solution through direct execution. The method which I used should work regardless though and you will be able to use my keygen to generate your own pass.
+<pre># Crackme Name: Simple Crackme 
+# Author: EzDiaol
+# Platform: Windows
+# Difficulty: Hard 
+# Tags: Keygen, BruteForce
+# Challenge URL: https://crackmy.app/crackmes/simple-crackme-2-by-ezdiaol-74051
+
+I would like to preface this solution by stating that I encountered issues executing this application, meaning that I was only able to statically analyze the application and could not verify my solution through direct execution. The method which I used should work regardless though and you will be able to use my keygen to generate your own pass.
 
 The application first prints a query message and then stores input of size 12 to a variable. It computes the length of the input up to the newline character and checks whether it is within the allowed limit. The string is null-terminated and it is passed to another function to be operated upon. 
 
@@ -50,6 +57,78 @@ Putting it all together we can start forming a solution. Since the value is supp
 One of the values that I generated was &#x27;xJX5zI3Q&#x27;, but many more are possible.
 </pre>
 
+
+<h2>🔑 Keygen</h2>
+<pre>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+#include &lt;limits.h&gt; 
+
+int processInput(char *input_string) {
+    char *advanced_index;
+    int result;
+    char current_index;
+    
+    result = 0x1505; 
+    advanced_index = input_string;
+
+    while (1) {
+        current_index = *advanced_index;
+        advanced_index = advanced_index + 1;
+        if (current_index == 0) break; 
+        result = result * 0x21 + (int)current_index; 
+    }
+    return result;
+}
+
+void testInputSizes() {
+    char input[256];
+    int result;
+    int target_value = -773328759;
+    int closest_diff = INT_MAX;    
+    char closest_input[256];      
+
+    char characters[] = &quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&quot;;
+
+    for (int len = 7; len &lt;= 10; len++) {
+        for (int i = 0; i &lt; 1000000; i++) { 
+            for (int j = 0; j &lt; len; j++) {
+                input[j] = characters[rand() % strlen(characters)];
+            }
+            input[len] = &#x27;\0&#x27;; 
+
+            result = processInput(input);
+
+            int diff = abs(result - target_value);
+
+            if (diff &lt; closest_diff) {
+                closest_diff = diff;
+                strcpy(closest_input, input);  
+            }
+
+            if (result == target_value) {
+                printf(&quot;Found matching input: %s\n&quot;, input);
+                printf(&quot;Result: %d (Target Value Matched)\n&quot;, result);
+                return; 
+            }
+        }
+    }
+
+    printf(&quot;No matching input found.\n&quot;);
+    printf(&quot;Closest input: %s\n&quot;, closest_input);
+    printf(&quot;Closest result: %d\n&quot;, processInput(closest_input));
+    printf(&quot;Difference from target: %d\n&quot;, closest_diff);
+}
+
+int main() {
+    srand(time(NULL));
+
+    testInputSizes();
+
+    return 0;
+}
+</pre>
 
 
 </body>

@@ -39,7 +39,12 @@
 <h1>Xor Crackme By 2Koy</h1>
 
 <h2>📝 Solution</h2>
-<pre>Solution to &quot;XOR Crackme&quot; by 2koy 
+<pre># Crackme Name: XOR Crackme
+# Author: 2koy
+# Platform: ?
+# Difficulty: Medium 
+# Tags: Keygen
+# Challenge URL: https://crackmy.app/crackmes/xor-crackme-by-2koy-52638
 
 This is a simple C++ crackme that should not take more than half an hour to solve for even the newest Reverse Engineers.
 
@@ -68,6 +73,33 @@ Have a great day :)
 github.com/johnnnathan
 </pre>
 
+
+<h2>🔑 Keygen</h2>
+<pre>string = &quot;2f39243c38382a1b393e04&quot; 
+key = 75
+
+final_password = &quot;&quot;
+
+
+for ASCII in range(0, len(string), 2):
+    # Get the two hex values that form an ASCII symbol
+    hex_pair = string[ASCII : ASCII + 2]
+
+    # Translate the hex value to decimal notation
+    decimal_value = int(hex_pair, 16)
+
+    # Perform the XOR operation using the key (0x4b or 0d75)
+    result = decimal_value ^ key
+
+    # Turn the ASCII code into the ASCII symbol
+    character = chr(result)
+
+    # Append the resulting ASCII symbol to the start of the string to reverse its little-Endianness
+    final_password = character + final_password
+
+# print the Resulting, and stored, password. Should be &quot;OurPassword&quot;
+print(final_password)
+</pre>
 
 
 </body>

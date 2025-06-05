@@ -39,20 +39,20 @@
 <h1>Veryeasycrackme By Int2Eh</h1>
 
 <h2>📝 Solution</h2>
-<pre>Solution to &quot;VeryEasyCrackme&quot; by _int2eh 
+<pre># Crackme Name: VeryEasyCrackme 
+# Author: _int2eh 
+# Platform: Windows
+# Difficulty: Medium
+# Tags: Keygen, Decompilation
+# Challenge URL: https://crackmy.app/crackmes/veryeasycrackme-by-int2eh-21483
 
 In reality it really was very easy, despite the fact that I spent an hour decoding it :|.
 
-Load up the program in Ghidra and you found the password, there is not much to it. 
-If you can&#x27;t do it yourself the password is &quot;YourPass&quot;.
+Load up the program in Ghidra and you found the password, there is not much to it. If you can&#x27;t do it yourself the password is &quot;YourPass&quot;.
 
-The problem that I faced was the fact that I could not differentiate between the &#x27;P&#x27; inside the decompilation and the &#x27;p&#x27; character because
-they looked too similar. I thought that there was some evil engineer behind this that hid some code in the seams but no. 
+The problem that I faced was the fact that I could not differentiate between the &#x27;P&#x27; inside the decompilation and the &#x27;p&#x27; character because they looked too similar. I thought that there was some evil engineer behind this that hid some code in the seams but no. 
 
-There is one loop in the main method that XORs the &quot;YourPass&quot; string with 0d10.
-The given password is also XORed using the same value and the result compared to the stored XORed password. 
-So, the stored password is XORed and the given password too, and since the stored password is equal to &quot;YourPass&quot; the given pass should also. 
-Giving &quot;YourPass&quot; as the given password results in a spanish Success message. 
+There is one loop in the main method that XORs the &quot;YourPass&quot; string with 0d10. The given password is also XORed using the same value and the result compared to the stored XORed password. So, the stored password is XORed and the given password too, and since the stored password is equal to &quot;YourPass&quot; the given pass should also. Giving &quot;YourPass&quot; as the given password results in a spanish Success message. 
 
 There are a couple of debugger checks but they should be easy enough to bypass, using bit flips or nops
 

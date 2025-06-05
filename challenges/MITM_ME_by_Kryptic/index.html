@@ -39,7 +39,14 @@
 <h1>Mitm Me By Kryptic</h1>
 
 <h2>📝 Solution</h2>
-<pre>To solve this challenge we don&#x27;t need to analyse the binary but rather the behavior of the website. The website sends a packet every 10 seconds and it contains a &quot;cracked&quot; field that is set to true. To intercept the packet we can use BurpSuite and use the proxy mode with the custom browser. Open the page in the browser and then look at the intercepted packets. Send it to the Repeater tab and turn the &quot;false&quot; value to &quot;true&quot;. We will then get a response containing the password.
+<pre># Crackme Name: MITM ME
+# Author: Kryptic
+# Platform: Windows
+# Difficulty: Medium
+# Tags: MISC, Networking
+# Challenge URL: https://crackmy.app/crackmes/mitm-me-2775
+
+To solve this challenge we don&#x27;t need to analyse the binary but rather the behavior of the website. The website sends a packet every 10 seconds and it contains a &quot;cracked&quot; field that is set to true. To intercept the packet we can use BurpSuite and use the proxy mode with the custom browser. Open the page in the browser and then look at the intercepted packets. Send it to the Repeater tab and turn the &quot;false&quot; value to &quot;true&quot;. We will then get a response containing the password.
 
 InBhc3N3b3JkIjoiaUFtU29TbWFydC1TTVJUMTExMS1NSVRNISI=
 

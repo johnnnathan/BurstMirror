@@ -1,3 +1,10 @@
+# Crackme Name: Very Special Number v1
+# Author: owo_whats_this
+# Platform: Linux
+# Difficulty: Medium
+# Tags: 
+# Challenge URL: https://crackmy.app/crackmes/very-special-number-v1-by-owo-whats-this-05209
+
 Solution for Normal Mode:
 
   

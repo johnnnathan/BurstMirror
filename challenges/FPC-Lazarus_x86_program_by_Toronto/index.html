@@ -39,7 +39,14 @@
 <h1>Fpc-Lazarus X86 Program By Toronto</h1>
 
 <h2>📝 Solution</h2>
-<pre>In the description of the challenge we can see that the program was written in the Lazarus language, this means that we won&#x27;t be able to determine what is happening by using the classic c/c++ function calls. The lazarus language is easy to understand when decompiled though. There are a few function calls that setup the input and output. Before the first conditional statement we can find a call to &quot;FPC_ANSISTR_COMPARE_EQUAL&quot; which compares the value that we gave to the second argument. The second argument is stored in plaintext and is &quot;11111&quot;. Giving &quot;11111&quot; as input will give us a success message.
+<pre># Crackme Name: FPC - Lazarus
+# Author: Toronto
+# Platform: Windows
+# Difficulty: Medium
+# Tags: MISC
+# Challenge URL: https://crackmy.app/crackmes/fpc-lazarus-x86-program-by-toronto-73372 
+
+In the description of the challenge we can see that the program was written in the Lazarus language, this means that we won&#x27;t be able to determine what is happening by using the classic c/c++ function calls. The lazarus language is easy to understand when decompiled though. There are a few function calls that setup the input and output. Before the first conditional statement we can find a call to &quot;FPC_ANSISTR_COMPARE_EQUAL&quot; which compares the value that we gave to the second argument. The second argument is stored in plaintext and is &quot;11111&quot;. Giving &quot;11111&quot; as input will give us a success message.
 
 Have a great day :)
 github.com/johnnnathan
